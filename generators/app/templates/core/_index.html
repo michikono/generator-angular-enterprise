@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="<%= appName %>">
+<head>
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <link href="app.less" type="text/css" rel="stylesheet/less">
+</head>
+<body ng-strict-di>
+
+<!-- Livereload script for development only (stripped during dist build) -->
+<script src="http://localhost:35729/livereload.js" data-concat="false"></script>
+
+<!-- JS from Bower Components -->
+<!-- Add New Bower Component JS Above -->
+
+
+<!-- Main App JS -->
+<script src="app.js"></script>
+<!-- Add New Component JS Above -->
+
+<div>
+  <div <%= routerViewDirective %>></div>
+</div>
+
+</body>
+</html>

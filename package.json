@@ -1,0 +1,37 @@
+{
+  "name": "generator-angular-enterprise",
+  "version": "0.0.0",
+  "description": "Angular Enterprise Yeoman generator",
+  "license": "MIT",
+  "main": "app/index.js",
+  "repository": "michikono/generator-angular-enterprise",
+  "author": {
+    "name": "Michi Kono",
+    "email": "michikono@gmail.com",
+    "url": "https://github.com/michikono"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "files": [
+    "app",
+    "feature"
+  ],
+  "keywords": [
+    "yeoman-generator",
+    "enterprise",
+    "angular"
+  ],
+  "dependencies": {
+    "chalk": "^1.0.0",
+    "change-case": "^2.3.0",
+    "merge": "^1.2.0",
+    "ng-parse-module": "^0.1.0",
+    "yeoman-generator": "^0.19.0",
+    "yosay": "^1.0.2"
+  },
+  "devDependencies": {
+    "jshint": "^2.8.0",
+    "mocha": "*"
+  }
+}

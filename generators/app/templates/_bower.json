@@ -1,0 +1,20 @@
+{
+  "name": "<%= appName %>",
+  "version": "0.0.0",
+  "main": "<%= clientSideFolder %>index.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "angular": "~1.4",
+    "angular-animate": "~1.4",
+    "angular-resource": "~1.4",
+    "angular-cookies": "~1.4",
+    "angular-mocks": "~1.4",
+    "angular-ui-utils": "~0.1",
+    "angular-bootstrap": "~0.10",
+    "font-awesome": "~4.0"
+  }
+}
