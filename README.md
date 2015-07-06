@@ -13,15 +13,15 @@ This generator creates Angular projects that strictly adheres to the
 
 Do you need to be an "enterprise" solution to use this? Absolutely not. However, most Angular tutorials teach _very_
 bad patterns for creating larger Angular applications. Eventually, most devs hit a wall before realizing everybody else
-has abandon all of the practices the tutorials endorsed.
+has abandoned the practices their tutorials once endorsed.
 
 The known best practices are often called "enterprise" patterns simply because they aren't as useful in small projects.
 However, they are great for any project that plans to expand beyond a few primary controllers ("pages"/states).
 
 
-## What makes this generator superior
+## What makes this generator superior to others
 
-* Whenever possible, rules are directly linked to the standards guide where are invoked. This will help prevent future 
+* Whenever possible, rules are directly linked to the standards guide where invoked. This will help prevent future 
   developers from undoing your hard work.
 * Not only does it generate a base template, but it will also generate secondary assets such as directives and services.
 * Generates extremely standard tests (no obscure frameworks or libraries outside of those known as Best Practices) 
@@ -47,7 +47,7 @@ yo angular-enterprise
 ## Other commands
 
 ```bash
-yo angular-enterprise:feature myFeature
+yo angular-enterprise:feature myFeature # "myFeature" is the name of the module
 ```
 
 ## License
@@ -57,11 +57,13 @@ MIT. Copyright (c) 2015 Michi Kono
 
 ## Still todo ##
 
-* Services, filters, directives
 * Gulp
+* Run a server
+* Services, filters, directives
 * ngannotate (https://github.com/johnpapa/angular-styleguide#style-y100)
 * mocha (https://github.com/johnpapa/angular-styleguide#style-y191)
-* chai 
-* sinon (https://github.com/johnpapa/angular-styleguide#style-y193)
-* karma (https://github.com/johnpapa/angular-styleguide#style-y192)
-* phantomjs (https://github.com/johnpapa/angular-styleguide#style-y194)
+* Run tests
+* Chai 
+* Sinon (https://github.com/johnpapa/angular-styleguide#style-y193)
+* Karma (https://github.com/johnpapa/angular-styleguide#style-y192)
+* Phantomjs (https://github.com/johnpapa/angular-styleguide#style-y194)
