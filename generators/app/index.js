@@ -91,12 +91,12 @@ module.exports = yeoman.generators.Base.extend({
 
     projectfiles: function () {
       this.fs.copyTpl(
-        this.templatePath('core/_index.html'),
+        this.templatePath('client/_index.html'),
         this.destinationPath(this.config.get('clientSideFolder') + 'index.html'),
         this.props
       );
       this.fs.copyTpl(
-        this.templatePath('core/app/_app.module.js'),
+        this.templatePath('client/app/_app.module.js'),
         this.destinationPath(this.config.get('clientSideFolder') + this.config.get('appSubFolder') + 'app.module.js'),
         this.props
       );
