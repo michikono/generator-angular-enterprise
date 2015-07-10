@@ -10,6 +10,10 @@
     "email": "michikono@gmail.com",
     "url": "https://github.com/michikono"
   },
+  "contributors": [{
+    "name": "John Katsnelson",
+    "email": ""
+  }],
   "scripts": {
     "test": "mocha"
   },
