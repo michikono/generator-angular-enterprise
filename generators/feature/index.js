@@ -22,7 +22,7 @@ module.exports = helpers.NamedBase.extend({
     }, {
       name: 'stateUrl',
       message: 'URL of feature?',
-      default: changeCase.paramCase(this.name).replace(/(.*?)\/$/, '$1') + '/'
+      default: '/' + changeCase.paramCase(this.name).replace(/(.*?)\/$/, '$1')
     }, {
       name: 'tests',
       type: 'confirm',
@@ -31,14 +31,14 @@ module.exports = helpers.NamedBase.extend({
     }];
 
     this.prompt(prompts, function (choices) {
-      this.settings = choices;
-      this.settings.moduleName = changeCase.camelCase(this.settings.moduleName);
-      this.settings.moduleNameParamCase = changeCase.paramCase(this.settings.moduleName);
-      this.settings.moduleNameCamelCase = changeCase.camelCase(this.settings.moduleName);
-      this.settings.stateName = changeCase.camelCase(this.name);
-      this.settings.stateUrl = this.settings.moduleNameParamCase.replace(/(.*?)\/$/, '$1') + '/';
-      this.settings.name = this.name;
-      // To access choices later use this.settings.someOption;
+      this.choices = choices;
+      this.choices.moduleName = changeCase.camelCase(this.choices.moduleName);
+      this.choices.moduleNameParamCase = changeCase.paramCase(this.choices.moduleName);
+      this.choices.moduleNameCamelCase = changeCase.camelCase(this.choices.moduleName);
+      this.choices.stateName = changeCase.camelCase(this.name);
+      this.choices.stateUrl = '/' + this.choices.moduleNameParamCase.replace(/(.*?)\/$/, '$1').replace(/\/(.*?)/, '$1');
+      this.choices.name = this.name;
+      // To access choices later use this.choices.someOption;
       done();
     }.bind(this));
   },
@@ -46,55 +46,55 @@ module.exports = helpers.NamedBase.extend({
   writing: {
     files: function () {
       var path = this.config.get('clientSideFolder') + this.config.get('appSubFolder') +
-        changeCase.paramCase(this.settings.moduleName) + '/';
+        changeCase.paramCase(this.choices.moduleName) + '/';
 
       this.installTemplate(
         this.templatePath('_.module.js'),
-        this.destinationPath(path + changeCase.paramCase(this.settings.moduleName) + '.module.js')
+        this.destinationPath(path + changeCase.paramCase(this.choices.moduleName) + '.module.js')
       );
       if (this.config.get('uirouter')) {
         this.installTemplate(
           this.templatePath('_.state.js'),
-          this.destinationPath(path + changeCase.paramCase(this.settings.moduleName) + '.route.js')
+          this.destinationPath(path + changeCase.paramCase(this.choices.moduleName) + '.route.js')
         );
-        if (this.settings.tests) {
+        if (this.choices.tests) {
           this.installTemplate(
             this.templatePath('_.state.spec.js'),
-            this.destinationPath(path + changeCase.paramCase(this.settings.moduleName) + '.route.spec.js')
+            this.destinationPath(path + changeCase.paramCase(this.choices.moduleName) + '.route.spec.js')
           );
         }
       } else {
         this.installTemplate(
           this.templatePath('_.route.js'),
-          this.destinationPath(path + changeCase.paramCase(this.settings.moduleName) + '.route.js')
+          this.destinationPath(path + changeCase.paramCase(this.choices.moduleName) + '.route.js')
         );
-        if (this.settings.tests) {
+        if (this.choices.tests) {
           this.installTemplate(
             this.templatePath('_.route.spec.js'),
-            this.destinationPath(path + changeCase.paramCase(this.settings.moduleName) + '.route.spec.js')
+            this.destinationPath(path + changeCase.paramCase(this.choices.moduleName) + '.route.spec.js')
           );
         }
       }
       this.installTemplate(
         this.templatePath('_.controller.js'),
-        this.destinationPath(path + changeCase.paramCase(this.settings.moduleName) + '.controller.js')
+        this.destinationPath(path + changeCase.paramCase(this.choices.moduleName) + '.controller.js')
       );
-      if (this.settings.tests) {
+      if (this.choices.tests) {
         this.installTemplate(
           this.templatePath('_.controller.spec.js'),
-          this.destinationPath(path + changeCase.paramCase(this.settings.moduleName) + '.controller.spec.js')
+          this.destinationPath(path + changeCase.paramCase(this.choices.moduleName) + '.controller.spec.js')
         );
       }
       this.installTemplate(
         this.templatePath('_.html'),
-        this.destinationPath(path + changeCase.paramCase(this.settings.moduleName) + '.html')
+        this.destinationPath(path + changeCase.paramCase(this.choices.moduleName) + '.html')
       );
     },
 
     modules: function () {
       helpers.addAngularModule(
         this.config.get('clientSideFolder') + this.config.get('appSubFolder') + 'app.module.js',
-        this.config.get('appName') + '.' + this.settings.moduleName
+        this.config.get('appName') + '.' + this.choices.moduleName
       );
     }
   }

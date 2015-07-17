@@ -15,7 +15,7 @@
     .config(configure);
 
   /* @ngInject */
-  function configure() {
-
+  function configure($locationProvider) {
+    $locationProvider.html5Mode(true).hashPrefix('!');
   }
 })();

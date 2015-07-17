@@ -52,27 +52,27 @@ module.exports = helpers.Base.extend({
       }];
 
     this.prompt(prompts, function (choices) {
-      this.settings = choices;
-      this.settings.appName = changeCase.camelCase(this.settings.appName);
-      this.settings.clientSideFolder = changeCase.paramCase(this.settings.clientSideFolder).replace(/(.*?)\/$/, '$1') + '/';
-      this.settings.clientSideFolderMinusSlash = this.settings.clientSideFolder.slice(0, -1);
-      this.settings.appSubFolder = changeCase.paramCase(this.settings.appSubFolder).replace(/(.*?)\/$/, '$1') + '/';
+      this.choices = choices;
+      this.choices.appName = changeCase.camelCase(this.choices.appName);
+      this.choices.clientSideFolder = changeCase.paramCase(this.choices.clientSideFolder).replace(/(.*?)\/$/, '$1') + '/';
+      this.choices.clientSideFolderMinusSlash = this.choices.clientSideFolder.slice(0, -1);
+      this.choices.appSubFolder = changeCase.paramCase(this.choices.appSubFolder).replace(/(.*?)\/$/, '$1') + '/';
       if (choices.router === 'Angular UI Router') {
-        this.settings.uirouter = true;
-        this.settings.routerJs = 'bower_components/angular-ui-router/release/angular-ui-router.js';
-        this.settings.routerModuleName = 'ui.router';
-        this.settings.routerViewDirective = 'ui-view';
+        this.choices.uirouter = true;
+        this.choices.routerJs = 'bower_components/angular-ui-router/release/angular-ui-router.js';
+        this.choices.routerModuleName = 'ui.router';
+        this.choices.routerViewDirective = 'ui-view';
       } else {
-        this.settings.uirouter = false;
-        this.settings.routerJs = 'bower_components/angular-route/angular-route.js';
-        this.settings.routerModuleName = 'ngRoute';
-        this.settings.routerViewDirective = 'ng-view';
+        this.choices.uirouter = false;
+        this.choices.routerJs = 'bower_components/angular-route/angular-route.js';
+        this.choices.routerModuleName = 'ngRoute';
+        this.choices.routerViewDirective = 'ng-view';
       }
 
-      this.config.set('appName', this.settings.appName);
-      this.config.set('clientSideFolder', this.settings.clientSideFolder);
-      this.config.set('appSubFolder', this.settings.appSubFolder);
-      this.config.set('uirouter', this.settings.uirouter);
+      this.config.set('appName', this.choices.appName);
+      this.config.set('clientSideFolder', this.choices.clientSideFolder);
+      this.config.set('appSubFolder', this.choices.appSubFolder);
+      this.config.set('uirouter', this.choices.uirouter);
 
       done();
     }.bind(this));
@@ -98,7 +98,7 @@ module.exports = helpers.Base.extend({
       });
     },
 
-    projectfiles: function () {
+    projectFiles: function () {
       this.installTemplate(
         this.templatePath('client/_index.html'),
         this.destinationPath(this.config.get('clientSideFolder') + 'index.html')
@@ -124,7 +124,7 @@ module.exports = helpers.Base.extend({
 
   install: function () {
     this.installDependencies();
-    if (this.config('uirouter')) {
+    if (this.config.get('uirouter')) {
       this.spawnCommand('bower', ['install', 'angular-ui-router', '--save'], {});
     } else {
       this.spawnCommand('bower', ['install', 'angular-route', '--save'], {});

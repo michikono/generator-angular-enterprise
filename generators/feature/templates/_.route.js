@@ -7,6 +7,7 @@
 
   angular.module('<%= appName %>.<%=moduleName%>').config(config);
 
+  /* @ngInject */
   function config($routeProvider) {
     /**
      * Always declare controllers with their routes
@@ -14,7 +15,7 @@
      */
     $routeProvider
       .when('<%= stateUrl %>', {
-        templateUrl: '<%= clientSideFolder %><%= appSubFolder %><%= moduleNameParamCase %>/<%= moduleNameParamCase %>.html',
+        templateUrl: '<%= appSubFolder %><%= moduleNameParamCase %>/<%= moduleNameParamCase %>.html',
         controller: '<%= moduleName %>Controller',
         controllerAs: 'vm',
         resolve: {}
