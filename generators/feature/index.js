@@ -38,7 +38,7 @@ module.exports = helpers.NamedBase.extend({
       this.settings.stateName = changeCase.camelCase(this.name);
       this.settings.stateUrl = this.settings.moduleNameParamCase.replace(/(.*?)\/$/, '$1') + '/';
       this.settings.name = this.name;
-      // To access props later use this.settings.someOption;
+      // To access choices later use this.settings.someOption;
       done();
     }.bind(this));
   },
@@ -52,7 +52,7 @@ module.exports = helpers.NamedBase.extend({
         this.templatePath('_.module.js'),
         this.destinationPath(path + changeCase.paramCase(this.settings.moduleName) + '.module.js')
       );
-      if (this.settings.uirouter) {
+      if (this.config.get('uirouter')) {
         this.installTemplate(
           this.templatePath('_.state.js'),
           this.destinationPath(path + changeCase.paramCase(this.settings.moduleName) + '.route.js')
@@ -94,7 +94,7 @@ module.exports = helpers.NamedBase.extend({
     modules: function () {
       helpers.addAngularModule(
         this.config.get('clientSideFolder') + this.config.get('appSubFolder') + 'app.module.js',
-        this.settings.appName + '.' + this.settings.moduleName
+        this.config.get('appName') + '.' + this.settings.moduleName
       );
     }
   }
