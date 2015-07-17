@@ -3,7 +3,7 @@ var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var changeCase = require('change-case');
 var merge = require('merge');
-var ngParseModule = require('ng-parse-module');
+var helpers = require('../../lib/helpers');
 
 module.exports = yeoman.generators.NamedBase.extend({
   // The name `constructor` is important here
@@ -54,7 +54,7 @@ module.exports = yeoman.generators.NamedBase.extend({
         this.destinationPath(path + changeCase.paramCase(this.props.moduleName) + '.module.js'),
         this.props
       );
-      if(this.props.uirouter) {
+      if (this.props.uirouter) {
         this.fs.copyTpl(
           this.templatePath('_.state.js'),
           this.destinationPath(path + changeCase.paramCase(this.props.moduleName) + '.route.js'),
@@ -100,10 +100,11 @@ module.exports = yeoman.generators.NamedBase.extend({
       );
     },
 
-    modules: function() {
-      var app = ngParseModule.parse(this.config.get('clientSideFolder') + this.config.get('appSubFolder') + 'app.module.js');
-      app.dependencies.modules.push(this.props.moduleName);
-      app.save();
+    modules: function () {
+      helpers.addAngularModule(
+        this.config.get('clientSideFolder') + this.config.get('appSubFolder') + 'app.module.js',
+        this.props.appName + '.' + this.props.moduleName
+      );
     }
   }
 });
