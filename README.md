@@ -57,8 +57,6 @@ MIT. Copyright (c) 2015 Michi Kono
 
 ## Still todo ##
 
-* Gulp
-* Run a server
 * Services, filters, directives
 * ngannotate (https://github.com/johnpapa/angular-styleguide#style-y100)
 * mocha (https://github.com/johnpapa/angular-styleguide#style-y191)
