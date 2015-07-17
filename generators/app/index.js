@@ -3,6 +3,7 @@ var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
 var changeCase = require('change-case');
+var _ = require('lodash');
 
 module.exports = yeoman.generators.Base.extend({
   // The name `constructor` is important here
@@ -53,6 +54,7 @@ module.exports = yeoman.generators.Base.extend({
       this.props = props;
       this.props.appName = changeCase.camelCase(this.props.appName);
       this.props.clientSideFolder = changeCase.paramCase(this.props.clientSideFolder).replace(/(.*?)\/$/, '$1') + '/';
+      this.props.clientSideFolderMinusSlash = this.props.clientSideFolder.slice(0, -1);
       this.props.appSubFolder = changeCase.paramCase(this.props.appSubFolder).replace(/(.*?)\/$/, '$1') + '/';
       if (props.router === 'Angular UI Router') {
         this.props.uirouter = true;
@@ -87,6 +89,15 @@ module.exports = yeoman.generators.Base.extend({
         this.destinationPath('bower.json'),
         this.props
       );
+      var gulpFiles = ['gulpfile.js', 'gulp/.jshintrc', 'gulp/build.js', 'gulp/conf.js', 'gulp/inject.js', 'gulp/scripts.js', 'gulp/server.js', 'gulp/watch.js'];
+      var that = this;
+      _.each(gulpFiles, function(file) {
+        that.fs.copyTpl(
+          that.templatePath(file),
+          that.destinationPath(file),
+          that.props
+        )
+      });
     },
 
     projectfiles: function () {
