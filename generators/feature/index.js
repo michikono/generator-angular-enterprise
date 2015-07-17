@@ -2,14 +2,13 @@
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var changeCase = require('change-case');
-var merge = require('merge');
 var helpers = require('../../lib/helpers');
 
-module.exports = yeoman.generators.NamedBase.extend({
+module.exports = helpers.NamedBase.extend({
   // The name `constructor` is important here
   constructor: function () {
     // Calling the super constructor is important so our generator is correctly set up
-    yeoman.generators.NamedBase.apply(this, arguments);
+    helpers.NamedBase.apply(this, arguments);
   },
 
   prompting: function () {
@@ -31,15 +30,15 @@ module.exports = yeoman.generators.NamedBase.extend({
       default: true
     }];
 
-    this.prompt(prompts, function (props) {
-      this.props = merge(this.config.getAll(), props);
-      this.props.moduleName = changeCase.camelCase(this.props.moduleName);
-      this.props.moduleNameParamCase = changeCase.paramCase(this.props.moduleName);
-      this.props.moduleNameCamelCase = changeCase.camelCase(this.props.moduleName);
-      this.props.stateName = changeCase.camelCase(this.name);
-      this.props.stateUrl = this.props.moduleNameParamCase.replace(/(.*?)\/$/, '$1') + '/';
-      this.props.name = this.name;
-      // To access props later use this.props.someOption;
+    this.prompt(prompts, function (choices) {
+      this.settings = choices;
+      this.settings.moduleName = changeCase.camelCase(this.settings.moduleName);
+      this.settings.moduleNameParamCase = changeCase.paramCase(this.settings.moduleName);
+      this.settings.moduleNameCamelCase = changeCase.camelCase(this.settings.moduleName);
+      this.settings.stateName = changeCase.camelCase(this.name);
+      this.settings.stateUrl = this.settings.moduleNameParamCase.replace(/(.*?)\/$/, '$1') + '/';
+      this.settings.name = this.name;
+      // To access props later use this.settings.someOption;
       done();
     }.bind(this));
   },
@@ -47,63 +46,55 @@ module.exports = yeoman.generators.NamedBase.extend({
   writing: {
     files: function () {
       var path = this.config.get('clientSideFolder') + this.config.get('appSubFolder') +
-        changeCase.paramCase(this.props.moduleName) + '/';
+        changeCase.paramCase(this.settings.moduleName) + '/';
 
-      this.fs.copyTpl(
+      this.installTemplate(
         this.templatePath('_.module.js'),
-        this.destinationPath(path + changeCase.paramCase(this.props.moduleName) + '.module.js'),
-        this.props
+        this.destinationPath(path + changeCase.paramCase(this.settings.moduleName) + '.module.js')
       );
-      if (this.props.uirouter) {
-        this.fs.copyTpl(
+      if (this.settings.uirouter) {
+        this.installTemplate(
           this.templatePath('_.state.js'),
-          this.destinationPath(path + changeCase.paramCase(this.props.moduleName) + '.route.js'),
-          this.props
+          this.destinationPath(path + changeCase.paramCase(this.settings.moduleName) + '.route.js')
         );
-        if (this.props.tests) {
-          this.fs.copyTpl(
+        if (this.settings.tests) {
+          this.installTemplate(
             this.templatePath('_.state.spec.js'),
-            this.destinationPath(path + changeCase.paramCase(this.props.moduleName) + '.route.spec.js'),
-            this.props
+            this.destinationPath(path + changeCase.paramCase(this.settings.moduleName) + '.route.spec.js')
           );
         }
       } else {
-        this.fs.copyTpl(
+        this.installTemplate(
           this.templatePath('_.route.js'),
-          this.destinationPath(path + changeCase.paramCase(this.props.moduleName) + '.route.js'),
-          this.props
+          this.destinationPath(path + changeCase.paramCase(this.settings.moduleName) + '.route.js')
         );
-        if (this.props.tests) {
-          this.fs.copyTpl(
+        if (this.settings.tests) {
+          this.installTemplate(
             this.templatePath('_.route.spec.js'),
-            this.destinationPath(path + changeCase.paramCase(this.props.moduleName) + '.route.spec.js'),
-            this.props
+            this.destinationPath(path + changeCase.paramCase(this.settings.moduleName) + '.route.spec.js')
           );
         }
       }
-      this.fs.copyTpl(
+      this.installTemplate(
         this.templatePath('_.controller.js'),
-        this.destinationPath(path + changeCase.paramCase(this.props.moduleName) + '.controller.js'),
-        this.props
+        this.destinationPath(path + changeCase.paramCase(this.settings.moduleName) + '.controller.js')
       );
-      if (this.props.tests) {
-        this.fs.copyTpl(
+      if (this.settings.tests) {
+        this.installTemplate(
           this.templatePath('_.controller.spec.js'),
-          this.destinationPath(path + changeCase.paramCase(this.props.moduleName) + '.controller.spec.js'),
-          this.props
+          this.destinationPath(path + changeCase.paramCase(this.settings.moduleName) + '.controller.spec.js')
         );
       }
-      this.fs.copyTpl(
+      this.installTemplate(
         this.templatePath('_.html'),
-        this.destinationPath(path + changeCase.paramCase(this.props.moduleName) + '.html'),
-        this.props
+        this.destinationPath(path + changeCase.paramCase(this.settings.moduleName) + '.html')
       );
     },
 
     modules: function () {
       helpers.addAngularModule(
         this.config.get('clientSideFolder') + this.config.get('appSubFolder') + 'app.module.js',
-        this.props.appName + '.' + this.props.moduleName
+        this.settings.appName + '.' + this.settings.moduleName
       );
     }
   }
