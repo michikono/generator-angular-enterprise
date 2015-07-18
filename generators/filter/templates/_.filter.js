@@ -6,7 +6,7 @@
    *   https://github.com/johnpapa/angular-styleguide#style-y022
    */
   angular
-    .module('<%= appName %>.filters')
+    .module('<%= appName %>')
     .filter('<%= moduleName %>', <%= moduleName %>);
 
   /**
