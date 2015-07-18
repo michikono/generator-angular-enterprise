@@ -37,7 +37,7 @@
      */
     var directive = {
       restrict: 'EA',
-      templateUrl: '<%= moduleName %>.directive.html',
+      templateUrl: '<%= appSubFolder %><%= moduleNameParamCase %>/<%= moduleNameParamCase %>.directive.html',
       scope: {},
       controllerAs: 'vm',
       controller: <%= moduleName %>Controller
@@ -46,7 +46,7 @@
     return directive;
   }
 
-  <%= moduleName %>Controller.$inject = ['scope'];
+  <%= moduleName %>Controller.$inject = ['$scope'];
 
   function <%= moduleName %>Controller($scope) {
 
