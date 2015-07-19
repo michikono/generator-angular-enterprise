@@ -46,9 +46,8 @@
     return directive;
   }
 
-  <%= namePascalCase %>DirectiveController.$inject = ['$scope'];
-
-  function <%= namePascalCase %>DirectiveController($scope) {
+  /* @ngInject */
+  function <%= namePascalCase %>DirectiveController() {
 
   }
 })();

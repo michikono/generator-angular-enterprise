@@ -13,6 +13,7 @@
    * Avoid anonymous functions as callbacks
    *   https://github.com/johnpapa/angular-styleguide#style-y024
    */
+  /* @ngInject */
   function <%= name %>() {
     return function() {
 
