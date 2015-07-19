@@ -3,7 +3,7 @@ var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
 var changeCase = require('change-case');
-var _ = require('underscore');
+var _ = require('lodash');
 var helpers = require('../../lib/helpers');
 
 module.exports = helpers.Base.extend({

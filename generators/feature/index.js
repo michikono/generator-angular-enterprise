@@ -36,7 +36,6 @@ module.exports = helpers.NamedBase.extend({
       this.choices.moduleNameParamCase = changeCase.paramCase(this.choices.moduleName);
       this.choices.moduleNameCamelCase = changeCase.camelCase(this.choices.moduleName);
       this.choices.stateName = changeCase.camelCase(this.name);
-      this.choices.stateUrl = '/' + this.choices.moduleNameParamCase.replace(/(.*?)\/$/, '$1').replace(/\/(.*?)/, '$1');
       this.choices.name = this.name;
       // To access choices later use this.choices.someOption;
       done();
@@ -46,7 +45,7 @@ module.exports = helpers.NamedBase.extend({
   writing: {
     files: function () {
       var path = this.config.get('clientSideFolder') + this.config.get('appSubFolder') +
-        changeCase.paramCase(this.choices.moduleName) + '/';
+        this.choices.stateUrl + '/';
 
       this.installTemplate(
         this.templatePath('_.module.js'),
