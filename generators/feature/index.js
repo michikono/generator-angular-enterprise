@@ -1,5 +1,4 @@
 'use strict';
-var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var changeCase = require('change-case');
 var helpers = require('../../lib/helpers');

@@ -1,9 +1,6 @@
 'use strict';
-var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var changeCase = require('change-case');
-var merge = require('merge');
-var ngParseModule = require('ng-parse-module');
 var helpers = require('../../lib/helpers');
 
 module.exports = helpers.NamedBase.extend({
