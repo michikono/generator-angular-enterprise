@@ -21,13 +21,8 @@ beyond a few primary states.
 
 ## What makes this generator superior to others
 
-* Not only does it generate a base template, but it will also generate secondary assets such as directives and services.
-* Generates extremely standard tests (no obscure frameworks or libraries outside of those known as Best Practices) 
-* Generates... uh, tests!
-* Leverages some of the toolchain Best Practices as well (jshint and jscs)
 * Whenever possible, rules are directly linked to the standards guide where invoked. This will help prevent future 
   developers from undoing your hard work. For example, when generating a feature:
-
 ````javascript
 // start example snippet ...
 /**
@@ -49,6 +44,10 @@ angular
 function AboutPageController() {
 // ... end example snippet
 ````
+* Generates extremely standard tests (no obscure frameworks or libraries outside of those known as Best Practices) 
+* Generates... uh, tests!
+* Leverages some of the toolchain Best Practices as well (jshint and jscs)
+* Contains sub-generators (used after the initial project is generated)
 
 ## Installation
 
