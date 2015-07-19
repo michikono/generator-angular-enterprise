@@ -12,6 +12,9 @@
   /**
    * Avoid anonymous functions as callbacks
    *   https://github.com/johnpapa/angular-styleguide#style-y024
+   *
+   * Document dependency injenction using annotations
+   *  https://github.com/johnpapa/angular-styleguide#style-y100
    */
   /* @ngInject */
   function <%= name %>() {
