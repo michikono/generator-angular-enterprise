@@ -41,8 +41,8 @@ module.exports = helpers.NamedBase.extend({
 
   writing: {
     files: function () {
-      var path = this.config.get('clientSideFolder') + this.config.get('appSubFolder') + 'directives/';
-      this.choices.templateFolder = path;
+      this.choices.templateFolder = this.config.get('appSubFolder') + 'directives/';
+      var path = this.config.get('clientSideFolder') + this.choices.templateFolder + changeCase.paramCase(this.choices.name) + '/';
       this.installTemplate(
         this.templatePath('_.directive.js'),
         this.destinationPath(path + changeCase.paramCase(this.choices.name) + '.directive.js')

@@ -37,7 +37,7 @@
      */
     var directive = {
       restrict: 'EA',
-      templateUrl: '<%= templateFolder %><%= nameParamCase %>.directive.html',
+      templateUrl: '<%= templateFolder %><%= nameParamCase %>/<%= nameParamCase %>.directive.html',
       scope: {},
       controllerAs: 'vm',
       controller: <%= namePascalCase %>DirectiveController
