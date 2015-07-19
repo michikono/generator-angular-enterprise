@@ -15,7 +15,7 @@
     var state = {
       url: '<%= stateUrl %>',
       templateUrl: '<%= clientSideFolder %><%= appSubFolder %><%= moduleNameParamCase %>/<%= moduleNameParamCase %>.html',
-      controller: '<%= moduleName %>Controller',
+      controller: '<%= moduleNamePascalCase %>Controller',
       controllerAs: 'vm',
       resolve: {}
     };

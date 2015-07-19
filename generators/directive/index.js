@@ -18,14 +18,6 @@ module.exports = helpers.NamedBase.extend({
     this.log('Creating directive: ' + chalk.green(this.name) + '...');
 
     var prompts = [{
-      name: 'moduleName',
-      message: 'Name of directive?',
-      default: changeCase.camelCase(this.name)
-    }, {
-      name: 'stateUrl',
-      message: 'URL of directive?',
-      default: changeCase.paramCase(this.name).replace(/(.*?)\/$/, '$1') + '/'
-    }, {
       name: 'tests',
       type: 'confirm',
       message: 'Generate tests?',
@@ -34,12 +26,9 @@ module.exports = helpers.NamedBase.extend({
 
     this.prompt(prompts, function (choices) {
       this.choices = choices;
-      this.choices.moduleName = changeCase.camelCase(this.choices.moduleName);
-      this.choices.moduleNameParamCase = changeCase.paramCase(this.choices.moduleName);
-      this.choices.moduleNameCamelCase = changeCase.camelCase(this.choices.moduleName);
-      this.choices.stateName = changeCase.camelCase(this.name);
-      this.choices.stateUrl = '/' + this.choices.moduleNameParamCase.replace(/(.*?)\/$/, '$1').replace(/\/(.*?)/, '$1');
-      this.choices.name = this.name;
+      this.choices.name = changeCase.camelCase(this.name);
+      this.choices.nameParamCase = changeCase.paramCase(this.name);
+      this.choices.namePascalCase = changeCase.pascalCase(this.name);
       // To access choices later use this.choices.someOption;
       done();
     }.bind(this));
@@ -47,22 +36,21 @@ module.exports = helpers.NamedBase.extend({
 
   writing: {
     files: function () {
-      var path = this.config.get('clientSideFolder') + this.config.get('appSubFolder') +
-        changeCase.paramCase(this.choices.moduleName) + '/';
-
+      var path = this.config.get('clientSideFolder') + this.config.get('appSubFolder') + 'directives/';
+      this.choices.templateFolder = path;
       this.installTemplate(
         this.templatePath('_.directive.js'),
-        this.destinationPath(path + changeCase.paramCase(this.choices.moduleName) + '.directive.js')
+        this.destinationPath(path + changeCase.paramCase(this.choices.name) + '.directive.js')
       );
       if (this.choices.tests) {
         this.installTemplate(
           this.templatePath('_.directive.spec.js'),
-          this.destinationPath(path + changeCase.paramCase(this.choices.moduleName) + '.directive.spec.js')
+          this.destinationPath(path + changeCase.paramCase(this.choices.name) + '.directive.spec.js')
         );
       }
       this.installTemplate(
         this.templatePath('_.directive.html'),
-        this.destinationPath(path + changeCase.paramCase(this.choices.moduleName) + '.directive.html')
+        this.destinationPath(path + changeCase.paramCase(this.choices.name) + '.directive.html')
       );
     }
   }

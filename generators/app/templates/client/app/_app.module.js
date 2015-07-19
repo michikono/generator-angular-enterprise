@@ -7,8 +7,15 @@
 (function () {
   'use strict';
 
-  angular.module('<%= appName %>',
-    ['ui.bootstrap', 'ui.utils', '<%= routerModuleName %>', 'ngAnimate']);
+  angular.module('<%= appName %>', [
+    'ui.bootstrap',
+    'ui.utils',
+    '<%= routerModuleName %>',
+    'ngAnimate',
+    '<%= appName %>.directives',
+    '<%= appName %>.filters',
+    '<%= appName %>.providers'
+  ]);
 
   angular
     .module('<%= appName %>')

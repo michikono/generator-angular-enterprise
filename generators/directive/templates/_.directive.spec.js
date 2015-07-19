@@ -3,11 +3,11 @@
 (function () {
   'use strict';
 
-  describe('<%= moduleName %>', function () {
+  describe('<%= name %>', function () {
     var $compile, $rootScope;
 
     beforeEach(function () {
-      angular.mock.module('<%= moduleName %>');
+      angular.mock.module('<%= appName %>.directives');
     });
 
     beforeEach(inject(function (_$compile_, _$rootScope_) {
@@ -16,9 +16,9 @@
     }));
 
     it('should exist', function () {
-      var element = $compile('<div <%= moduleNameParamCase %> ></div>');
+      var element = $compile('<<%= nameParamCase %>></<%= nameParamCase %>>');
       $rootScope.$digest();
-      expect(element.html()).toContain('View for <%= moduleName %>');
+      expect(element.html()).toContain('View for <%= name %> directive');
     });
   });
 })();

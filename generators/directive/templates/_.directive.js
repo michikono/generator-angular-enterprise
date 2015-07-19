@@ -1,4 +1,4 @@
-(function() {
+(function () {
   'use strict';
 
   /**
@@ -12,14 +12,14 @@
    */
 
   angular
-    .module('<%= appName %>')
-    .directive('<%= moduleName %>', <%= moduleName %>);
+    .module('<%= appName %>.directives')
+    .directive('<%= name %>', <%= name %>);
 
   /**
    * Avoid anonymous functions as callbacks
    *   https://github.com/johnpapa/angular-styleguide#style-y024
    */
-  function <%= moduleName %>() {
+  function <%= name %>() {
     /**
      * When creating a directive that makes sense as a stand-alone element, allow restrict E (custom element) and optionally restrict A (custom attribute).
      * EA is the default for Angular 1.3 +
@@ -37,20 +37,18 @@
      */
     var directive = {
       restrict: 'EA',
-      templateUrl: '<%= appSubFolder %><%= moduleNameParamCase %>/<%= moduleNameParamCase %>.directive.html',
+      templateUrl: '<%= templateFolder %><%= nameParamCase %>.directive.html',
       scope: {},
       controllerAs: 'vm',
-      controller: <%= moduleName %>Controller
+      controller: <%= namePascalCase %>DirectiveController
     };
 
     return directive;
   }
 
-  <%= moduleName %>Controller.$inject = ['$scope'];
+  <%= namePascalCase %>DirectiveController.$inject = ['$scope'];
 
-  function <%= moduleName %>Controller($scope) {
+  function <%= namePascalCase %>DirectiveController($scope) {
 
   }
-
-
 })();

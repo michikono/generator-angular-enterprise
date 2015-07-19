@@ -16,7 +16,7 @@
     $routeProvider
       .when('<%= stateUrl %>', {
         templateUrl: '<%= appSubFolder %><%= moduleNameParamCase %>/<%= moduleNameParamCase %>.html',
-        controller: '<%= moduleName %>Controller',
+        controller: '<%= moduleNamePascalCase %>Controller',
         controllerAs: 'vm',
         resolve: {}
       });

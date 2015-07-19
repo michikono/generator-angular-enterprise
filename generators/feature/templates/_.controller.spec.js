@@ -3,7 +3,7 @@
 (function () {
   'use strict';
 
-  describe('<%= moduleName %>Controller', function () {
+  describe('<%= moduleNamePascalCase %>Controller', function () {
     var controller, $controller;
 
     beforeEach(function () {
@@ -15,7 +15,7 @@
     }));
 
     it('should exist', function () {
-      controller = $controller('<%= moduleName %>Controller', []);
+      controller = $controller('<%= moduleNamePascalCase %>Controller', []);
       expect(controller).not.to.be.null;
     });
   });
