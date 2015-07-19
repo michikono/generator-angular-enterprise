@@ -25,10 +25,15 @@ module.exports = helpers.NamedBase.extend({
     }];
 
     this.prompt(prompts, function (choices) {
+      var prefix = '';
+      if(this.config.get('directivePrefix')) {
+        prefix = this.config.get('directivePrefix') + '-';
+      }
+
       this.choices = choices;
-      this.choices.name = changeCase.camelCase(this.name);
-      this.choices.nameParamCase = changeCase.paramCase(this.name);
-      this.choices.namePascalCase = changeCase.pascalCase(this.name);
+      this.choices.name = changeCase.camelCase(prefix + this.name);
+      this.choices.nameParamCase = changeCase.paramCase(prefix + this.name);
+      this.choices.namePascalCase = changeCase.pascalCase(prefix + this.name);
       // To access choices later use this.choices.someOption;
       done();
     }.bind(this));

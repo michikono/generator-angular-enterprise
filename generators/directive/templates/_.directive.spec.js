@@ -18,7 +18,7 @@
     it('should exist', function () {
       var element = $compile('<<%= nameParamCase %>></<%= nameParamCase %>>');
       $rootScope.$digest();
-      expect(element.html()).toContain('View for <%= name %> directive');
+      expect(element.html()).toContain('View for &lt;<%= nameParamCase %>&gt; directive');
     });
   });
 })();
