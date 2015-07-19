@@ -5,10 +5,8 @@
 
 ## What is this?
 
-This builds Angular projects that _strictly_ adheres to the 
-[most popular best practices guide](https://github.com/johnpapa/angular-styleguide).
-
-It also generates companion tests and gives you a gulp build process. It meticulously documents any best practices that are being employed when generating a snippet (see below)
+This is the most comprehensive and strict code generator that adheres to Angular's
+[most popular best practices guide](https://github.com/johnpapa/angular-styleguide). It also generates companion tests and gives you a gulp build/test process. It even documents best practices that are being employed when generating a snippet (see below).
 
 ## Do I need to be "Enterprise?"
 
