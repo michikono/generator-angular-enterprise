@@ -7,7 +7,7 @@
    */
   angular
     .module('<%= appName %>.providers')
-    .filter('<%= name %>', <%= name %>);
+    .factory('<%= name %>', <%= name %>);
 
   /**
    * Avoid anonymous functions as callbacks
