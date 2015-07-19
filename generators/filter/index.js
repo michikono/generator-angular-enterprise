@@ -18,14 +18,6 @@ module.exports = helpers.NamedBase.extend({
     this.log('Creating filter: ' + chalk.green(this.name) + '...');
 
     var prompts = [{
-      name: 'moduleName',
-      message: 'Name of filter?',
-      default: changeCase.camelCase(this.name)
-    }, {
-      name: 'stateUrl',
-      message: 'URL of filter?',
-      default: changeCase.paramCase(this.name).replace(/(.*?)\/$/, '$1') + '/'
-    }, {
       name: 'tests',
       type: 'confirm',
       message: 'Generate tests?',
@@ -34,11 +26,7 @@ module.exports = helpers.NamedBase.extend({
 
     this.prompt(prompts, function (choices) {
       this.choices = choices;
-      this.choices.moduleName = changeCase.camelCase(this.choices.moduleName);
-      this.choices.moduleNameParamCase = changeCase.paramCase(this.choices.moduleName);
-      this.choices.moduleNameCamelCase = changeCase.camelCase(this.choices.moduleName);
-      this.choices.stateName = changeCase.camelCase(this.name);
-      this.choices.name = this.name;
+      this.choices.name = changeCase.camelCase(this.name);
       // To access choices later use this.choices.someOption;
       done();
     }.bind(this));
@@ -46,19 +34,17 @@ module.exports = helpers.NamedBase.extend({
 
   writing: {
     files: function () {
-      var path = this.config.get('clientSideFolder') + this.config.get('appSubFolder') +
-        this.choices.stateUrl + '/';
-
+      var path = this.config.get('clientSideFolder') + this.config.get('appSubFolder') + '/filters/';
+      this.installTemplate(
+        this.templatePath('_.filter.js'),
+        this.destinationPath(path + changeCase.paramCase(this.choices.name) + '.filter.js')
+      );
+      if (this.choices.tests) {
         this.installTemplate(
-          this.templatePath('_.filter.js'),
-          this.destinationPath(path + changeCase.paramCase(this.choices.moduleName) + '.filter.js')
+          this.templatePath('_.filter.spec.js'),
+          this.destinationPath(path + changeCase.paramCase(this.choices.name) + '.filter.spec.js')
         );
-        if (this.choices.tests) {
-          this.installTemplate(
-            this.templatePath('_.filter.spec.js'),
-            this.destinationPath(path + changeCase.paramCase(this.choices.moduleName) + '.filter.spec.js')
-          );
-        }
+      }
     }
   }
 });

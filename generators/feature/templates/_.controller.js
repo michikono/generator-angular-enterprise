@@ -7,14 +7,14 @@
    */
   angular
     .module('<%= appName %>.<%=moduleName%>')
-    .controller('<%= moduleName %>Controller', <%= moduleName %>Controller);
+    .controller('<%= moduleNamePascalCase %>Controller', <%= moduleNamePascalCase %>Controller);
 
   /**
    * Avoid anonymous functions as callbacks
    *   https://github.com/johnpapa/angular-styleguide#style-y024
    */
   /* @ngInject */
-  function <%= moduleName %>Controller() {
+  function <%= moduleNamePascalCase %>Controller() {
 
     /**
      * Attach any view properties to this variable

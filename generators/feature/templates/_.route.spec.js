@@ -18,7 +18,7 @@
       }));
 
       it('should map controller to url <%= stateUrl %>', function () {
-        expect($route.routes['<%= stateUrl %>'].controller).to.be('<%= moduleName %>Controller');
+        expect($route.routes['<%= stateUrl %>'].controller).to.be('<%= moduleNamePascalCase %>Controller');
       });
 
       it('should map <%= stateUrl %> route to <%= stateName %> View template', function () {

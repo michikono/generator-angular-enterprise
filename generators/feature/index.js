@@ -35,6 +35,7 @@ module.exports = helpers.NamedBase.extend({
       this.choices.moduleName = changeCase.camelCase(this.choices.moduleName);
       this.choices.moduleNameParamCase = changeCase.paramCase(this.choices.moduleName);
       this.choices.moduleNameCamelCase = changeCase.camelCase(this.choices.moduleName);
+      this.choices.moduleNamePascalCase = changeCase.pascalCase(this.choices.moduleName);
       this.choices.stateName = changeCase.camelCase(this.name);
       this.choices.name = this.name;
       // To access choices later use this.choices.someOption;

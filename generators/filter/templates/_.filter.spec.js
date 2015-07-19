@@ -3,11 +3,11 @@
 (function () {
   'use strict';
 
-  describe('<%= moduleName %>', function () {
+  describe('<%= name %>', function () {
     var filter, $filter;
 
     beforeEach(function () {
-      angular.mock.module('<%= moduleName %>');
+      angular.mock.module('<%= appName %>.filters');
     });
 
     beforeEach(inject(function (_$filter_) {
@@ -15,7 +15,7 @@
     }));
 
     it('should exist', function () {
-      filter = $filter('<%= moduleName %>', []);
+      filter = $filter('<%= name %>', []);
       expect(filter).not.to.be.null;
     });
   });

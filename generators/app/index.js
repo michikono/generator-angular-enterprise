@@ -108,6 +108,18 @@ module.exports = helpers.Base.extend({
         this.destinationPath(this.config.get('clientSideFolder') + this.config.get('appSubFolder') + 'app.module.js')
       );
       this.installTemplate(
+        this.templatePath('client/app/_app.directives.module.js'),
+        this.destinationPath(this.config.get('clientSideFolder') + this.config.get('appSubFolder') + 'app.directives.module.js')
+      );
+      this.installTemplate(
+        this.templatePath('client/app/_app.filters.module.js'),
+        this.destinationPath(this.config.get('clientSideFolder') + this.config.get('appSubFolder') + 'app.filters.module.js')
+      );
+      this.installTemplate(
+        this.templatePath('client/app/_app.providers.module.js'),
+        this.destinationPath(this.config.get('clientSideFolder') + this.config.get('appSubFolder') + 'app.providers.module.js')
+      );
+      this.installTemplate(
         this.templatePath('editorconfig'),
         this.destinationPath('.editorconfig')
       );
