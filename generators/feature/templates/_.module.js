@@ -14,5 +14,13 @@
    */
   angular.module('<%= appName %>.<%=moduleName%>', [
     /* module dependencies here */
-  ]);
+  ]).run(runBlock);
+
+  /**
+   * Run block should use factories
+   *   https://github.com/johnpapa/angular-styleguide#style-y171
+   */
+  /* @ngInject */
+  function runBlock() {
+  };
 })();

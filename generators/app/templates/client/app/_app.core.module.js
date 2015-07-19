@@ -23,10 +23,19 @@
 
   angular
     .module('<%= appName %>')
-    .config(configure);
+    .config(configure)
+    .run(runBlock);
 
   /* @ngInject */
   function configure($locationProvider) {
     $locationProvider.html5Mode(true).hashPrefix('!');
   }
+
+  /**
+   * Run block should use factories
+   *   https://github.com/johnpapa/angular-styleguide#style-y171
+   */
+  /* @ngInject */
+  function runBlock() {
+  };
 })();
