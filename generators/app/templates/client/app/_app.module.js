@@ -7,22 +7,12 @@
 (function () {
   'use strict';
 
+  /**
+   * Thin app module
+   *   https://github.com/johnpapa/angular-styleguide#style-y161
+   *   https://github.com/johnpapa/angular-styleguide#style-y162
+   */
   angular.module('<%= appName %>', [
-    'ui.bootstrap',
-    'ui.utils',
-    '<%= routerModuleName %>',
-    'ngAnimate',
-    '<%= appName %>.directives',
-    '<%= appName %>.filters',
-    '<%= appName %>.providers'
+    '<%= appName %>.core'
   ]);
-
-  angular
-    .module('<%= appName %>')
-    .config(configure);
-
-  /* @ngInject */
-  function configure($locationProvider) {
-    $locationProvider.html5Mode(true).hashPrefix('!');
-  }
 })();
