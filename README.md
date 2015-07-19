@@ -67,9 +67,11 @@ yo angular-enterprise
 ## Other commands
 
 ```bash
-yo angular-enterprise:feature myFeature # "myFeature" is the name of the module
-yo angular-enterprise:filter myFilter # "myFilter" is what you would use in the HTML
 yo angular-enterprise:directive myDirective # "myDirective" is the camel case representation of your directive name
+yo angular-enterprise:feature myFeature # "myFeature" is the name of the module (will generate a controller/routes)
+yo angular-enterprise:filter myFilter # "myFilter" is what you would use in the HTML
+yo angular-enterprise:factory myFactory # "myFactory" is the name of factory
+yo angular-enterprise:service myService # "myService" is the name of service (singleton)
 ```
 
 ## License
