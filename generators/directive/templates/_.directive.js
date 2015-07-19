@@ -46,6 +46,10 @@
     return directive;
   }
 
+  /**
+   * Document dependency injenction using annotations
+   *  https://github.com/johnpapa/angular-styleguide#style-y100
+   */
   /* @ngInject */
   function <%= namePascalCase %>DirectiveController() {
 
