@@ -57,7 +57,7 @@ MIT. Copyright (c) 2015 Michi Kono
 
 ## Still todo ##
 
-* Services, filters, directives
+* Services
 * ngannotate (https://github.com/johnpapa/angular-styleguide#style-y100)
 * mocha (https://github.com/johnpapa/angular-styleguide#style-y191)
 * Run tests
