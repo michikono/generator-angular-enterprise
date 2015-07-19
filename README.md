@@ -72,6 +72,8 @@ yo angular-enterprise
 
 ```bash
 yo angular-enterprise:feature myFeature # "myFeature" is the name of the module
+yo angular-enterprise:filter myFilter # "myFilter" is what you would use in the HTML
+yo angular-enterprise:directive myDirective # "myDirective" is the camel case representation of your directive name
 ```
 
 ## License
