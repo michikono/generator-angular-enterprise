@@ -5,29 +5,49 @@
 
 ## What is this?
 
-This generator creates Angular projects that strictly adheres to the 
-[most popular best practices guide](https://github.com/johnpapa/angular-styleguide).
+This is the most comprehensive and strict code generator that adheres to Angular's
+[most popular best practices guide](https://github.com/johnpapa/angular-styleguide). It also generates companion tests and gives you a gulp build/test process. It even documents best practices that are being employed when generating a snippet (see below).
 
+## Do I need to be "Enterprise?"
 
-## Enterprise?
+Absolutely not. Most Angular tutorials teach _very_ bad patterns for creating larger Angular 
+applications. Eventually, most devs hit a wall before realizing everybody else has abandoned 
+the practices their tutorials once endorsed.
 
-Do you need to be an "enterprise" solution to use this? Absolutely not. However, most Angular tutorials teach _very_
-bad patterns for creating larger Angular applications. Eventually, most devs hit a wall before realizing everybody else
-has abandoned the practices their tutorials once endorsed.
-
-The known best practices are often called "enterprise" patterns simply because they aren't as useful in small projects.
-However, they are great for any project that plans to expand beyond a few primary controllers ("pages"/states).
+The known best practices are often called "enterprise" patterns simply because they aren't as 
+useful in small projects. This generator should be useful for any project that plans to expand 
+beyond a few primary states.
 
 
 ## What makes this generator superior to others
 
 * Whenever possible, rules are directly linked to the standards guide where invoked. This will help prevent future 
-  developers from undoing your hard work.
-* Not only does it generate a base template, but it will also generate secondary assets such as directives and services.
+  developers from undoing your hard work. For example, when generating a feature:
+````javascript
+// start example snippet ...
+/**
+ * Chain to fetch module
+ *   https://github.com/johnpapa/angular-styleguide#style-y022
+ */
+angular
+  .module('myApp.aboutPage')
+  .controller('AboutPageController', AboutPageController);
+
+/**
+ * Avoid anonymous functions as callbacks
+ *   https://github.com/johnpapa/angular-styleguide#style-y024
+ *
+ * Document dependency injenction using annotations
+ *  https://github.com/johnpapa/angular-styleguide#style-y100
+ */
+/* @ngInject */
+function AboutPageController() {
+// ... end example snippet
+````
 * Generates extremely standard tests (no obscure frameworks or libraries outside of those known as Best Practices) 
 * Generates... uh, tests!
-* Leverages some of the toolchain best practices as well (jshint and jscs)
-
+* Leverages some of the toolchain Best Practices as well (jshint and jscs)
+* Contains sub-generators (used after the initial project is generated)
 
 ## Installation
 
@@ -48,6 +68,8 @@ yo angular-enterprise
 
 ```bash
 yo angular-enterprise:feature myFeature # "myFeature" is the name of the module
+yo angular-enterprise:filter myFilter # "myFilter" is what you would use in the HTML
+yo angular-enterprise:directive myDirective # "myDirective" is the camel case representation of your directive name
 ```
 
 ## License
@@ -65,3 +87,4 @@ MIT. Copyright (c) 2015 Michi Kono
 * Sinon (https://github.com/johnpapa/angular-styleguide#style-y193)
 * Karma (https://github.com/johnpapa/angular-styleguide#style-y192)
 * Phantomjs (https://github.com/johnpapa/angular-styleguide#style-y194)
+* TypeScript or ES6
