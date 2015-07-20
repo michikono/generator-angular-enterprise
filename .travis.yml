@@ -13,4 +13,4 @@ before_script:
   - sleep 3 # give server time to start
   
 script:
-  - sh -e ls
+  - sleep 1
