@@ -44,10 +44,11 @@ angular
 function AboutPageController() {
 // ... end example snippet
 ````
-* Generates extremely standard tests (no obscure frameworks or libraries outside of those known as Best Practices) 
+* Generates extremely standard tests (no obscure libraries except those designated as Best Practices) 
 * Generates... uh, tests!
 * Leverages some of the toolchain Best Practices as well (jshint and jscs)
 * Contains sub-generators (used after the initial project is generated)
+* Supports both Angular Router and UI Router
 
 ## Installation
 
@@ -64,6 +65,24 @@ Then, initiate the generator:
 yo angular-enterprise
 ```
 
+And then create your application's starting point:
+
+```bash
+yo angular-enterprise:feature myStartingPage
+```
+
+For example, the above would generate the following folder/files in your designated application folder:
+
+    app/
+        my-starting-page/
+            my-starting-page.controller.js
+            my-starting-page.controller.spec.js
+            my-starting-page.html
+            my-starting-page.module.js
+            my-starting-page.route.js
+            my-starting-page.route.spec.js
+
+
 ## Other commands
 
 ```bash
@@ -73,6 +92,7 @@ yo angular-enterprise:filter myFilter # "myFilter" is what you would use in the 
 yo angular-enterprise:factory myFactory # "myFactory" is the name of factory
 yo angular-enterprise:service myService # "myService" is the name of service (singleton)
 ```
+
 
 ## License
 
