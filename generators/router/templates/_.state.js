@@ -5,7 +5,7 @@
 (function () {
   'use strict';
 
-  angular.module('<%= appName %>.<%=moduleName%>').config(setRouteState);
+  angular.module('<%= appName %>.<%=name%>').config(setRouteState);
 
   function setRouteState($stateProvider) {
     /**
@@ -13,13 +13,13 @@
      *   https://github.com/johnpapa/angular-styleguide#style-y038
      */
     var state = {
-      url: '<%= stateUrl %>',
-      templateUrl: '<%= clientSideFolder %><%= appSubFolder %><%= moduleNameParamCase %>/<%= moduleNameParamCase %>.html',
-      controller: '<%= moduleNamePascalCase %>Controller',
+      url: '/<%= nameParamCase %>',
+      templateUrl: '<%= appSubFolder %><%= nameParamCase %>/<%= nameParamCase %>.html',
+      controller: '<%= namePascalCase %>Controller',
       controllerAs: 'vm',
       resolve: {}
     };
-    $stateProvider.state('<%= stateName %>', state);
+    $stateProvider.state('<%= name %>', state);
   }
 
   /**

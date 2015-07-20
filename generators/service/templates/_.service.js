@@ -7,14 +7,14 @@
    */
   angular
     .module('<%= appName %>.providers')
-    .service('<%= name %>', <%= name %>);
+    .service('<%= name %>', <%= namePascalCase %>);
 
   /**
    * Avoid anonymous functions as callbacks
    *   https://github.com/johnpapa/angular-styleguide#style-y024
    */
   /* @ngInject */
-  function <%= name %>() {
+  function <%= namePascalCase %>() {
     /**
      * Accessible members at top
      *   https://github.com/johnpapa/angular-styleguide#style-y052

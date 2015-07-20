@@ -5,7 +5,7 @@
 (function () {
   'use strict';
 
-  angular.module('<%= appName %>.<%=moduleName%>').config(config);
+  angular.module('<%= appName %>.<%=name%>').config(config);
 
   /* @ngInject */
   function config($routeProvider) {
@@ -14,9 +14,9 @@
      *   https://github.com/johnpapa/angular-styleguide#style-y038
      */
     $routeProvider
-      .when('<%= stateUrl %>', {
-        templateUrl: '<%= appSubFolder %><%= moduleNameParamCase %>/<%= moduleNameParamCase %>.html',
-        controller: '<%= moduleNamePascalCase %>Controller',
+      .when('/<%= nameParamCase %>', {
+        templateUrl: '<%= appSubFolder %><%= nameParamCase %>/<%= nameParamCase %>.html',
+        controller: '<%= namePascalCase %>Controller',
         controllerAs: 'vm',
         resolve: {}
       });
