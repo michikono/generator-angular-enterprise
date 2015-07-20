@@ -1,4 +1,4 @@
-# generator-angular-enterprise
+# Generator Angular Enterprise [![Build Status](https://travis-ci.org/michikono/generator-angular-enterprise.svg?branch=master)](https://travis-ci.org/michikono/generator-angular-enterprise)
 
 ** currently in progress **
 
