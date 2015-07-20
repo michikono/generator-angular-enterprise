@@ -3,11 +3,11 @@
 (function () {
   'use strict';
 
-  describe('<%= moduleNamePascalCase %>Controller', function () {
+  describe('<%= namePascalCase %>Controller', function () {
     var controller, $controller;
 
     beforeEach(function () {
-      angular.mock.module('<%= appName %>.<%= moduleName %>');
+      angular.mock.module('<%= appName %>.<%= name %>');
     });
 
     beforeEach(inject(function (_$controller_) {
@@ -15,7 +15,7 @@
     }));
 
     it('should exist', function () {
-      controller = $controller('<%= moduleNamePascalCase %>Controller', []);
+      controller = $controller('<%= namePascalCase %>Controller', []);
       expect(controller).not.to.be.null;
     });
   });

@@ -12,7 +12,7 @@
    * Declare modules without variables
    *   https://github.com/johnpapa/angular-styleguide#style-y021
    */
-  angular.module('<%= appName %>.<%=moduleName%>', [
+  angular.module('<%= appName %>.<%=name%>', [
     /* module dependencies here */
   ]).run(runBlock);
 
@@ -22,5 +22,5 @@
    */
   /* @ngInject */
   function runBlock() {
-  };
+  }
 })();

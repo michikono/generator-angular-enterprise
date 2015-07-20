@@ -6,8 +6,8 @@
    *   https://github.com/johnpapa/angular-styleguide#style-y022
    */
   angular
-    .module('<%= appName %>.<%=moduleName%>')
-    .controller('<%= moduleNamePascalCase %>Controller', <%= moduleNamePascalCase %>Controller);
+    .module('<%= appName %>.<%=name%>')
+    .controller('<%= namePascalCase %>Controller', <%= namePascalCase %>Controller);
 
   /**
    * Avoid anonymous functions as callbacks
@@ -17,7 +17,7 @@
    *  https://github.com/johnpapa/angular-styleguide#style-y100
    */
   /* @ngInject */
-  function <%= moduleNamePascalCase %>Controller() {
+  function <%= namePascalCase %>Controller() {
 
     /**
      * Attach any view properties to this variable
