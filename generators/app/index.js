@@ -131,6 +131,10 @@ module.exports = helpers.Base.extend({
         this.destinationPath(this.config.get('clientSideFolder') + this.config.get('appSubFolder') + 'app.providers.module.js')
       );
       this.installTemplate(
+        this.templatePath('client/app/_app.core.module.js'),
+        this.destinationPath(this.config.get('clientSideFolder') + this.config.get('appSubFolder') + 'app.core.module.js')
+      );
+      this.installTemplate(
         this.templatePath('editorconfig'),
         this.destinationPath('.editorconfig')
       );
