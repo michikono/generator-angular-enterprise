@@ -36,12 +36,6 @@ module.exports = helpers.Base.extend({
         store: true
       },
       {
-        name: 'tests',
-        type: 'confirm',
-        message: 'Generate tests?',
-        default: true
-      },
-      {
         type: 'input',
         name: 'directivePrefix',
         message: 'Prefix added to all directives (see Y073 in style guide); enter nothing/space to skip this',

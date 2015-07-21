@@ -29,23 +29,19 @@ module.exports = helpers.NamedBase.extend({
           this.templatePath('_.state.js'),
           this.destinationPath(path + changeCase.paramCase(this.name) + '.route.js')
         );
-        if (this.config.get('tests')) {
-          this.installTemplate(
-            this.templatePath('_.state.spec.js'),
-            this.destinationPath(path + changeCase.paramCase(this.name) + '.route.spec.js')
-          );
-        }
+        this.installTemplate(
+          this.templatePath('_.state.spec.js'),
+          this.destinationPath(path + changeCase.paramCase(this.name) + '.route.spec.js')
+        );
       } else {
         this.installTemplate(
           this.templatePath('_.route.js'),
           this.destinationPath(path + changeCase.paramCase(this.name) + '.route.js')
         );
-        if (this.config.get('tests')) {
-          this.installTemplate(
-            this.templatePath('_.route.spec.js'),
-            this.destinationPath(path + changeCase.paramCase(this.name) + '.route.spec.js')
-          );
-        }
+        this.installTemplate(
+          this.templatePath('_.route.spec.js'),
+          this.destinationPath(path + changeCase.paramCase(this.name) + '.route.spec.js')
+        );
       }
     }
   }
