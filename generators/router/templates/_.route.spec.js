@@ -8,6 +8,7 @@
       var view = '<%= appSubFolder %><%= nameParamCase %>/<%= nameParamCase %>.html';
 
       beforeEach(function () {
+        angular.mock.module('<%= appName %>');
         angular.mock.module('<%= appName %>.<%= name %>');
       });
 
@@ -18,11 +19,11 @@
       }));
 
       it('should map controller to url /<%= nameParamCase %>', function () {
-        expect($route.routes['/<%= nameParamCase %>'].controller).to.be('<%= namePascalCase %>Controller');
+        expect($route.routes['/<%= nameParamCase %>'].controller).toBe('<%= namePascalCase %>Controller');
       });
 
       it('should map /<%= nameParamCase %> route to <%= name %> View template', function () {
-        expect($route.routes['/<%= nameParamCase %>'].templateUrl).to.equal(view);
+        expect($route.routes['/<%= nameParamCase %>'].templateUrl).toEqual(view);
       });
     });
   });
