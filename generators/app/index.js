@@ -101,7 +101,11 @@ module.exports = helpers.Base.extend({
         this.templatePath('_bower.json'),
         this.destinationPath('bower.json')
       );
-      var gulpFiles = ['gulpfile.js', 'gulp/.jshintrc', 'gulp/build.js', 'gulp/conf.js', 'gulp/inject.js', 'gulp/scripts.js', 'gulp/server.js', 'gulp/watch.js'];
+      this.installTemplate(
+        this.templatePath('_karma.conf.js'),
+        this.destinationPath('karma.conf.js')
+      );
+      var gulpFiles = ['gulpfile.js', 'gulp/.jshintrc', 'gulp/build.js', 'gulp/conf.js', 'gulp/inject.js', 'gulp/scripts.js', 'gulp/server.js', 'gulp/watch.js', 'gulp/unit-tests.js'];
       var that = this;
       _.each(gulpFiles, function (file) {
         that.installTemplate(
