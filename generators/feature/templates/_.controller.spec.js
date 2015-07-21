@@ -7,6 +7,7 @@
     var controller, $controller;
 
     beforeEach(function () {
+      angular.mock.module('<%= appName %>');
       angular.mock.module('<%= appName %>.<%= name %>');
     });
 
@@ -16,7 +17,7 @@
 
     it('should exist', function () {
       controller = $controller('<%= namePascalCase %>Controller', []);
-      expect(controller).not.to.be.null;
+      expect(controller).not.toBe(null);
     });
   });
 })();
