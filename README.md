@@ -93,6 +93,74 @@ yo angular-enterprise:factory myFactory # "myFactory" is the name of factory
 yo angular-enterprise:service myService # "myService" is the name of service (singleton)
 ```
 
+## Alias
+
+Typing the command:
+
+```bash
+yo angular-enterprise
+```
+
+for each generation is cumbersome. Unfortunately, there is no way to alias the generation command through the Yeoman API. If you would like to use an alias, please follow the proceeding steps.
+**Note that you may have to do this as root (ie. sudo)**
+
+1.You can put this file anywhere, but `/usr/bin` is a good choice.Navigate to your `/usr/bin` directory and create a file titled `ae.sh`
+
+```bash
+touch /usr/bin/ae.sh
+```
+
+2.Copy the following code into `ae.sh` and save.
+
+```
+#!/bin/bash
+function help {
+  echo "Following are the available command line options: "
+  echo " "
+  echo "ae new                   : Generate new application"
+  echo "ae feature myFeature     : Generate new feature, named myFeature"
+  echo "ae directive myDirective : Generate new feature, named myDirective"
+  echo "ae filter myFilter       : Generate new feature, named myFilter"
+  echo "ae factory myFactory     : Generate new feature, named myFactory"
+  echo "ae service myService     : Generate new feature, named myService"
+  echo " "
+}
+if [[ $# = 0 || $# > 2 ]]; then
+  help
+fi
+
+if [ $# = 1 ]; then
+  if [ $1 = "new" ]; then
+    yo angular-enterprise
+  else
+    help
+  fi
+fi
+
+if [ $# = 2 ]; then
+  if [[ $1 = "feature" || $1 = "directive" || $1 = "filter" || $1 = "factory" || $1 = "service" ]]; then
+    yo angular-enterprise:$1 $2
+  else
+    help
+  fi
+fi
+
+```
+
+3.You will need to give this file the correct permissions.
+
+```bash
+chmod +x /usr/bin/ae.sh
+```
+
+4.Now, we need to set up an alias in order to use this script. In your `.bash_profile` (or `.bashrc` or `.aliases`, etc), append this line to that file:
+
+```bash
+alias ae='sh /usr/bin/ae.sh'
+```
+
+5.Save this file, close it and open a new terminal (alternatively you can just `source` this file as well). Navigate to your project directory and make use of the new alias `ae`.
+
 
 ## License
 
