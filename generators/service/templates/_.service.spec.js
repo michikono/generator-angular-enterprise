@@ -7,6 +7,7 @@
     var <%= name %>;
 
     beforeEach(function () {
+      angular.mock.module('<%= appName %>');
       angular.mock.module('<%= appName %>.providers');
     });
 
@@ -15,12 +16,12 @@
     }));
 
     it('should exist', function () {
-      expect(<%= name %>).not.to.be.null;
+      expect(<%= name %>).not.toBe(null);
     });
 
     describe('publicMethod', function () {
       it('should return true', function () {
-        expect(<%= name %>.publicMethod()).to.be.true;
+        expect(<%= name %>.publicMethod()).toBe(true);
       });
     });
   });
