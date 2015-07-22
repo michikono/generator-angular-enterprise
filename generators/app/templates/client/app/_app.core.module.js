@@ -31,8 +31,6 @@
     $locationProvider.html5Mode(true).hashPrefix('!');
   }
 
-  configure.$inject = ['$locationProvider'];
-
   /**
    * Run block should use factories
    *   https://github.com/johnpapa/angular-styleguide#style-y171
