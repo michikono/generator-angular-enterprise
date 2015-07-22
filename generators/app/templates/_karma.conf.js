@@ -28,8 +28,6 @@ module.exports = function(config) {
   var configuration = {
     files: listFiles(),
 
-    exclude: [path.join(conf.paths.bower, '/font-awesome/**/*.min.js')],
-
     singleRun: true,
 
     autoWatch: false,
