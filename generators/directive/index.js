@@ -10,6 +10,7 @@ module.exports = helpers.NamedBase.extend({
     helpers.NamedBase.apply(this, arguments);
     this.log('Creating directive: ' + chalk.green(this.name) + '...');
     var prefix = '';
+
     if (this.config.get('directivePrefix')) {
       prefix = this.config.get('directivePrefix') + '-';
     }

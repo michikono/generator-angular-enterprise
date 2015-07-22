@@ -9,7 +9,12 @@ describe('app', function () {
   before(function (done) {
     helpers.run(path.join(__dirname, '../generators/app'))
       .withOptions({ skipInstall: true })
-      .withPrompts({ someOption: true })
+      .withPrompts({
+        appName: 'app',
+        clientSideFolder: 'client',
+        directivePrefix: ' ',
+        appSubFolder: 'app'
+      })
       .on('end', done);
   });
 
