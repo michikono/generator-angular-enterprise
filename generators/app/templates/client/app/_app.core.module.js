@@ -29,7 +29,7 @@
   /* @ngInject */
   function configure($locationProvider) {
     $locationProvider.html5Mode(true).hashPrefix('!');
-  }
+  } 
 
   /**
    * Run block should use factories

@@ -7,6 +7,7 @@
     var filter, $filter;
 
     beforeEach(function () {
+      angular.mock.module('<%= appName %>');
       angular.mock.module('<%= appName %>.filters');
     });
 
@@ -16,7 +17,7 @@
 
     it('should exist', function () {
       filter = $filter('<%= name %>', []);
-      expect(filter).not.to.be.null;
+      expect(filter).not.toBe(null);
     });
   });
 })();

@@ -7,6 +7,7 @@
     var $compile, $scope;
 
     beforeEach(function () {
+      angular.mock.module('<%= appName %>');
       angular.mock.module('<%= appName %>.directives');
     });
 

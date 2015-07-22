@@ -8,6 +8,7 @@
       var view = '<%= appSubFolder %><%= nameParamCase %>/<%= nameParamCase %>.html';
 
       beforeEach(function () {
+        angular.mock.module('<%= appName %>');
         angular.mock.module('<%= appName %>.<%= name %>');
       });
 
@@ -18,11 +19,11 @@
       }));
 
       it('should map state <%= name %> to url /<%= nameParamCase %> ', function () {
-        expect($state.href('/<%= nameParamCase %>', {})).to.equal('<%= name %>');
+        expect($state.href('/<%= nameParamCase %>', {})).toEqual('<%= name %>');
       });
 
       it('should map <%= nameParamCase %> route to view template', function () {
-        expect($state.get('<%= name %>').templateUrl).to.equal(view);
+        expect($state.get('<%= name %>').templateUrl).toEqual(view);
       });
     });
   });
