@@ -23,7 +23,7 @@
     }
   ],
   "scripts": {
-    "test": "mocha"
+    "test": "mocha -G --reporter nyan test/"
   },
   "files": [
     "app",
@@ -45,7 +45,10 @@
     "yosay": "^1.0.2"
   },
   "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-mocha": "~2.0",
+    "gulp-util": "^3.0.6",
     "jshint": "^2.8.0",
-    "mocha": "*"
+    "mocha": "~2.2.5"
   }
 }
