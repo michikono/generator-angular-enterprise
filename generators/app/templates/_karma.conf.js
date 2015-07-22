@@ -19,7 +19,7 @@ function listFiles() {
       path.join(conf.paths.src, '/**/*.spec.js'),
       path.join(conf.paths.src, '/**/*.mock.js'),
       path.join(conf.paths.src, '/**/*.html'),
-      path.join(conf.paths.bower, '/**/*.min.js')
+      path.join(conf.paths.bower, '/angular*/angular*.js')
     ]);
 }
 
