@@ -93,6 +93,40 @@ yo angular-enterprise:factory myFactory # "myFactory" is the name of factory
 yo angular-enterprise:service myService # "myService" is the name of service (singleton)
 ```
 
+## Alias
+
+Typing the command:
+
+```bash
+yo angular-enterprise
+```
+
+for each generation is cumbersome. Unfortunately, there is no way to alias the generation command through the Yeoman API. If you would like to use an alias, please follow the proceeding steps.
+**Note that you may have to do this as root (ie. sudo)**
+
+1.You can put this file anywhere, but I am putting it in `~/.bin`.Navigate to your `~/.bin` directory (or whichever directory you have chosen) and create a file titled `ae.sh`
+
+```bash
+touch ~/.bin/ae.sh
+```
+
+2.Copy the contents of the `ae.sh` file located in this repo. 'ae.sh' is located in the `/scripts` directory of this repo.
+
+
+3.You will need to give this file the correct permissions.
+
+```bash
+chmod +x ~/.bin/ae.sh
+```
+
+4.Now, we need to set up an alias in order to use this script. In your `.bash_profile` (or `.bashrc` or `.aliases`, etc), append this line to that file:
+
+```bash
+alias ae='sh ~/.bin/ae.sh'
+```
+
+5.Save this file, close it and open a new terminal (alternatively you can just `source` this file as well). Navigate to your project directory and make use of the new alias `ae`.
+
 
 ## License
 
