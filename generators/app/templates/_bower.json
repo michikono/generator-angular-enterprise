@@ -14,7 +14,8 @@
     "angular-cookies": "~1.4",
     "angular-mocks": "~1.4",
     "angular-ui-utils": "~0.1",
-    "angular-bootstrap": "~0.10",
+    "bootstrap-sass-official": "~3.3.4",
+    "angular-bootstrap": "~0.13.0",
     "font-awesome": "~4.0"
   }
 }

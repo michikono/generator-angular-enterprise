@@ -99,7 +99,7 @@ module.exports = helpers.Base.extend({
         this.templatePath('_karma.conf.js'),
         this.destinationPath('karma.conf.js')
       );
-      var gulpFiles = ['gulpfile.js', 'gulp/.jshintrc', 'gulp/build.js', 'gulp/conf.js', 'gulp/inject.js', 'gulp/scripts.js', 'gulp/server.js', 'gulp/watch.js', 'gulp/unit-tests.js'];
+      var gulpFiles = ['gulpfile.js', 'gulp/.jshintrc', 'gulp/build.js', 'gulp/conf.js', 'gulp/inject.js', 'gulp/scripts.js', 'gulp/server.js', 'gulp/watch.js', 'gulp/unit-tests.js', 'gulp/styles.js'];
       var that = this;
       _.each(gulpFiles, function (file) {
         that.installTemplate(
@@ -113,6 +113,10 @@ module.exports = helpers.Base.extend({
       this.installTemplate(
         this.templatePath('client/_index.html'),
         this.destinationPath(this.config.get('clientSideFolder') + 'index.html')
+      );
+      this.installTemplate(
+        this.templatePath('client/_index.scss'),
+        this.destinationPath(this.config.get('clientSideFolder') + 'index.scss')
       );
       this.installTemplate(
         this.templatePath('client/app/_app.module.js'),
