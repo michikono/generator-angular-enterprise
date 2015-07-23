@@ -8,7 +8,7 @@
 
     beforeEach(function () {
       angular.mock.module('<%= appName %>');
-      angular.mock.module('<%= appName %>.<%= name %>');
+      angular.mock.module('<%= appName %>.<%= moduleName %>');
     });
 
     beforeEach(inject(function (_$controller_) {

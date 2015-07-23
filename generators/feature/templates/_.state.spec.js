@@ -5,26 +5,21 @@
   describe('<%= name %> routes', function () {
     describe('state', function () {
       var $state, $templateCache;
-      var view = '<%= appSubFolder %><%= nameParamCase %>/<%= nameParamCase %>.html';
 
       beforeEach(function () {
         angular.mock.module('<%= appName %>');
         angular.mock.module('<%= appName %>.<%= name %>');
+
+        // Place template loading modules below here
+        // [INJECT:TEST_TEMPLATES] templates module for test loaded here, at this indent level. DO NOT REMOVE.
       });
 
       beforeEach(inject(function (_$state_, _$templateCache_) {
         $state = _$state_;
         $templateCache = _$templateCache_;
-        $templateCache.put(view, '');
       }));
 
-      it('should map state <%= name %> to url /<%= nameParamCase %> ', function () {
-        expect($state.href('/<%= nameParamCase %>', {})).toEqual('<%= name %>');
-      });
-
-      it('should map <%= nameParamCase %> route to view template', function () {
-        expect($state.get('<%= name %>').templateUrl).toEqual(view);
-      });
+      // [INJECT:TESTS] Generated routes appear here, at this indent level. DO NOT REMOVE.
     });
   });
 })();
