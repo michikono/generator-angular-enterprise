@@ -119,24 +119,40 @@ module.exports = helpers.Base.extend({
         this.destinationPath(this.config.get('clientSideFolder') + 'index.scss')
       );
       this.installTemplate(
+        this.templatePath('client/app/_app.config.js'),
+        this.destinationPath(this.config.get('clientSideFolder') + this.config.get('appSubFolder') + 'app.config.js')
+      );
+      this.installTemplate(
         this.templatePath('client/app/_app.module.js'),
         this.destinationPath(this.config.get('clientSideFolder') + this.config.get('appSubFolder') + 'app.module.js')
       );
       this.installTemplate(
-        this.templatePath('client/app/_app.directives.module.js'),
-        this.destinationPath(this.config.get('clientSideFolder') + this.config.get('appSubFolder') + 'app.directives.module.js')
+        this.templatePath('client/app/directives/directives.config.js'),
+        this.destinationPath(this.config.get('clientSideFolder') + this.config.get('appSubFolder') + 'directives/directives.config.js')
       );
       this.installTemplate(
-        this.templatePath('client/app/_app.filters.module.js'),
-        this.destinationPath(this.config.get('clientSideFolder') + this.config.get('appSubFolder') + 'app.filters.module.js')
+        this.templatePath('client/app/directives/directives.module.js'),
+        this.destinationPath(this.config.get('clientSideFolder') + this.config.get('appSubFolder') + 'directives/directives.module.js')
+      );
+      this.installTemplate(
+        this.templatePath('client/app/filters/filters.config.js'),
+        this.destinationPath(this.config.get('clientSideFolder') + this.config.get('appSubFolder') + 'filters/filters.config.js')
+      );
+      this.installTemplate(
+        this.templatePath('client/app/filters/filters.module.js'),
+        this.destinationPath(this.config.get('clientSideFolder') + this.config.get('appSubFolder') + 'filters/filters.module.js')
       );
       this.installTemplate(
         this.templatePath('client/app/_app.providers.module.js'),
         this.destinationPath(this.config.get('clientSideFolder') + this.config.get('appSubFolder') + 'app.providers.module.js')
       );
       this.installTemplate(
-        this.templatePath('client/app/_app.core.module.js'),
-        this.destinationPath(this.config.get('clientSideFolder') + this.config.get('appSubFolder') + 'app.core.module.js')
+        this.templatePath('client/app/core.config.js'),
+        this.destinationPath(this.config.get('clientSideFolder') + this.config.get('appSubFolder') + 'core.config.js')
+      );
+      this.installTemplate(
+        this.templatePath('client/app/core.module.js'),
+        this.destinationPath(this.config.get('clientSideFolder') + this.config.get('appSubFolder') + 'core.module.js')
       );
       this.installTemplate(
         this.templatePath('editorconfig'),

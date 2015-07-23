@@ -1,14 +1,12 @@
 /**
  * Separate configuration file for modules; wrap all code in closures
  *   https://github.com/johnpapa/angular-styleguide#style-y128
- *   https://github.com/johnpapa/angular-styleguide#style-y127
- *   https://github.com/johnpapa/angular-styleguide#style-y010
  */
 (function () {
   'use strict';
 
   /**
-   * Move reused depencnies into separate core app module
+   * Move reused dependencies into separate core app module
    *   https://github.com/johnpapa/angular-styleguide#style-y165
    */
   angular.module('<%= appName %>.core', [
@@ -29,7 +27,7 @@
   /* @ngInject */
   function configure($locationProvider) {
     $locationProvider.html5Mode(true).hashPrefix('!');
-  } 
+  }
 
   /**
    * Run block should use factories
@@ -37,5 +35,5 @@
    */
   /* @ngInject */
   function runBlock() {
-  };
+  }
 })();

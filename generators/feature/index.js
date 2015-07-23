@@ -23,6 +23,10 @@ module.exports = helpers.NamedBase.extend({
         this.templatePath('_.module.js'),
         this.destinationPath(path + changeCase.paramCase(this.name) + '.module.js')
       );
+      this.installTemplate(
+        this.templatePath('_.config.js'),
+        this.destinationPath(path + changeCase.paramCase(this.name) + '.config.js')
+      );
 
       if (this.config.get('uirouter')) {
         this.installTemplate(
