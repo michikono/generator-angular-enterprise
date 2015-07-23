@@ -11,14 +11,38 @@ module.exports = helpers.NamedBase.extend({
     this.log('Creating feature: ' + chalk.green(this.name) + '...');
     this.choices = {
       name: changeCase.camelCase(this.name),
+      nameParamCase: changeCase.paramCase(this.name),
       namePascalCase: changeCase.pascalCase(this.name)
     };
   },
 
   writing: {
-    files: function () {
-      this.installTemplateFolder(this.choices.name, 'feature');
-      this.composeWith('angular-enterprise:router', {args: [this.name]})
+    routes: function () {
+      var path = this.config.get('clientSideFolder') + this.config.get('appSubFolder') + changeCase.paramCase(this.name) + '/';
+      this.installTemplate(
+        this.templatePath('_.module.js'),
+        this.destinationPath(path + changeCase.paramCase(this.name) + '.module.js')
+      );
+
+      if (this.config.get('uirouter')) {
+        this.installTemplate(
+          this.templatePath('_.state.js'),
+          this.destinationPath(path + changeCase.paramCase(this.name) + '.route.js')
+        );
+        this.installTemplate(
+          this.templatePath('_.state.spec.js'),
+          this.destinationPath(path + changeCase.paramCase(this.name) + '.route.spec.js')
+        );
+      } else {
+        this.installTemplate(
+          this.templatePath('_.route.js'),
+          this.destinationPath(path + changeCase.paramCase(this.name) + '.route.js')
+        );
+        this.installTemplate(
+          this.templatePath('_.route.spec.js'),
+          this.destinationPath(path + changeCase.paramCase(this.name) + '.route.spec.js')
+        );
+      }
     },
 
     modules: function () {

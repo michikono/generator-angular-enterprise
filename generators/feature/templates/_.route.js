@@ -5,21 +5,15 @@
 (function () {
   'use strict';
 
-  angular.module('<%= appName %>.<%=name%>').config(setRouteState);
+  angular.module('<%= appName %>.<%=name%>').config(config);
 
-  function setRouteState($stateProvider) {
+  /* @ngInject */
+  function config($routeProvider) {
     /**
      * Always declare controllers with their routes
      *   https://github.com/johnpapa/angular-styleguide#style-y038
      */
-    var state = {
-      url: '/<%= nameParamCase %>',
-      templateUrl: '<%= appSubFolder %><%= nameParamCase %>/<%= nameParamCase %>.html',
-      controller: '<%= namePascalCase %>Controller',
-      controllerAs: 'vm',
-      resolve: {}
-    };
-    $stateProvider.state('<%= name %>', state);
+    // [INJECT:ROUTES] Generated routes appear here, at this indent level. DO NOT REMOVE.
   }
 
   /**
