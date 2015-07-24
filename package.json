@@ -48,6 +48,7 @@
   "devDependencies": {
     "gulp": "^3.9.0",
     "gulp-mocha": "~2.0",
+    "gulp-spawn-mocha": "^2.2.1",
     "gulp-util": "^3.0.6",
     "jshint": "^2.8.0",
     "mocha": "~2.2.5"
