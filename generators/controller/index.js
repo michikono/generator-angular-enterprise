@@ -3,7 +3,7 @@ var chalk = require('chalk');
 var changeCase = require('change-case');
 var helpers = require('../../lib/helpers');
 var _ = require('lodash');
-var fs = require('fs');
+var path = require('path');
 
 module.exports = helpers.NamedBase.extend({
   // The name `constructor` is important here
@@ -43,25 +43,27 @@ module.exports = helpers.NamedBase.extend({
         + changeCase.paramCase(this.choices.moduleName) + '/'
       );
 
-      var fileName = routeFilePrefix + changeCase.paramCase(this.choices.moduleName) + '.route.js';
-      this.log('Adding a route entry in: ' + chalk.green(fileName));
+      var fileType = ((this.config.get('uirouter') && 'state') || 'route');
+
       this.injectTemplatePartial(
-        this.templatePath('snippet.' + ((this.config.get('uirouter') && 'state') || 'route') + '.js'),
+        this,
+        this.templatePath('partial.' + fileType + '.js'),
         'INJECT:ROUTES',
-        fileName
+        routeFilePrefix + changeCase.paramCase(this.choices.moduleName) + '.route.js'
       );
 
-      fileName = routeFilePrefix + changeCase.paramCase(this.choices.moduleName) + '.route.spec.js';
-      this.log('Adding a route test entry in: ' + chalk.green(fileName));
       this.injectTemplatePartial(
-        this.templatePath('snippet.' + ((this.config.get('uirouter') && 'state') || 'route') + '.spec.js'),
-        'INJECT:TESTS',
-        fileName
+        this,
+        this.templatePath('partial.' + fileType + '.spec.js'),
+        'INJECT:ROUTE_TESTS',
+        routeFilePrefix + changeCase.paramCase(this.choices.moduleName) + '.route.spec.js'
       );
+
       this.injectTemplatePartial(
-        this.templatePath('snippet.route-view.js'),
-        'INJECT:TEST_TEMPLATES',
-        fileName
+        this,
+        this.templatePath('partial.route-view.js'),
+        'INJECT:ROUTE_TEST_TEMPLATES',
+        routeFilePrefix + changeCase.paramCase(this.choices.moduleName) + '.route.spec.js'
       );
       done();
     }.bind(this));
@@ -69,11 +71,11 @@ module.exports = helpers.NamedBase.extend({
 
   writing: {
     files: function () {
-      this.installTemplateFolder(this.choices.name, 'controller', this.choices.moduleName);
-      //this.composeWith('angular-enterprise:router', {
-      //  args: [this.choices.moduleName],
-      //  options: {controllerName: this.name}
-      //});
+      this.installTemplateFolder({
+        generator: this,
+        destination: path.join(this.config.get('clientSideFolder'), this.config.get('appSubFolder')),
+        fileMacros: {'_': this.choices.nameParamCase}
+      });
     }
   }
 });

@@ -1,5 +1,6 @@
 'use strict';
 var chalk = require('chalk');
+var path = require('path');
 var changeCase = require('change-case');
 var helpers = require('../../lib/helpers');
 
@@ -16,7 +17,11 @@ module.exports = helpers.NamedBase.extend({
 
   writing: {
     files: function () {
-      this.installTemplateFolder(this.choices.name, 'factory');
+      this.installTemplateFolder({
+        generator: this,
+        destination: path.join(this.config.get('clientSideFolder'), this.config.get('appSubFolder'), 'providers/'),
+        fileMacros: {'_': changeCase.paramCase(this.name)}
+      });
     }
   }
 });
