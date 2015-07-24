@@ -97,15 +97,20 @@ module.exports = helpers.Base.extend({
   },
 
   install: function () {
-    this.installDependencies();
-    if (this.options.skipInstall) {
-      return;
-    } else {
-      if (this.config.get('uirouter')) {
-        this.spawnCommand('bower', ['install', 'angular-ui-router', '--save'], {});
+    // the install process NEEDS the files in place
+    this.fs.commit([],  function() {
+      this.installDependencies();
+      if (this.options.skipInstall) {
+        return;
       } else {
-        this.spawnCommand('bower', ['install', 'angular-route', '--save'], {});
+        if (this.config.get('uirouter')) {
+          this.spawnCommand('bower', ['install', 'angular-ui-router', '--save'], {});
+        } else {
+          this.spawnCommand('bower', ['install', 'angular-route', '--save'], {});
+        }
       }
-    }
+
+    }.bind(this));
+
   }
 });
