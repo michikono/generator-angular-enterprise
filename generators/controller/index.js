@@ -49,21 +49,21 @@ module.exports = helpers.NamedBase.extend({
         this,
         this.templatePath('partial.' + fileType + '.js'),
         'INJECT:ROUTES',
-        routeFilePrefix + changeCase.paramCase(this.choices.moduleName) + '.route.js'
+        routeFilePrefix + changeCase.paramCase(this.choices.moduleName) + '.' + fileType + '.js'
       );
 
       this.injectTemplatePartial(
         this,
         this.templatePath('partial.' + fileType + '.spec.js'),
         'INJECT:ROUTE_TESTS',
-        routeFilePrefix + changeCase.paramCase(this.choices.moduleName) + '.route.spec.js'
+        routeFilePrefix + changeCase.paramCase(this.choices.moduleName) + '.' + fileType + '.spec.js'
       );
 
       this.injectTemplatePartial(
         this,
         this.templatePath('partial.route-view.js'),
         'INJECT:ROUTE_TEST_TEMPLATES',
-        routeFilePrefix + changeCase.paramCase(this.choices.moduleName) + '.route.spec.js'
+        routeFilePrefix + changeCase.paramCase(this.choices.moduleName) + '.' + fileType + '.spec.js'
       );
       done();
     }.bind(this));
