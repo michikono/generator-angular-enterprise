@@ -7,20 +7,22 @@ var helpers = require('yeoman-generator').test;
 var baseGenerator = require('./helpers/base-generator');
 var appFixture = fs.readFileSync(path.join(__dirname, './fixtures/app.module.js'), 'utf8');
 
-describe("feature generation", function() {
-  beforeEach(function(done) {
-    baseGenerator(function() {
+describe("app generation", function () {
+  beforeEach(function (done) {
+    baseGenerator(function () {
       done();
     });
   });
 
   it('creates dependency and config files', function () {
     assert.file([
-      'bower.json',
-      'package.json',
       '.editorconfig',
       '.jscsrc',
-      '.jshintrc'
+      '.jshintrc',
+      'bower.json',
+      'gulpfile.js',
+      'karma.conf.js',
+      'package.json'
     ]);
   });
 
@@ -35,20 +37,27 @@ describe("feature generation", function() {
     assert.file([
       'client/app/app.config.js',
       'client/app/app.module.js',
-      'client/app/app.providers.module.js',
-      'client/app/core.config.js',
-      'client/app/core.module.js'
+      'client/app/core/core.config.js',
+      'client/app/core/core.module.js',
+      'client/app/directives/directives.config.js',
+      'client/app/directives/directives.module.js',
+      'client/app/filters/filters.config.js',
+      'client/app/filters/filters.module.js',
+      'client/app/providers/providers.config.js',
+      'client/app/providers/providers.module.js',
+      'client/index.scss',
+      'client/index.html'
     ]);
   });
 
-  it('generates expected app content', function(done) {
+  it('generates expected app content', function (done) {
     var featureGen = helpers.createGenerator('angular-enterprise:feature', [path.join(__dirname, '../generators/feature')], ['myFeature']);
     featureGen.run()
-    .on('end', function() {
-      var generatedAppContent = fs.readFileSync(featureGen.destinationPath('client/app/app.module.js'), 'utf8');
-      assert.equal(appFixture, generatedAppContent);
-      done();
-    });
+      .on('end', function () {
+        var generatedAppContent = fs.readFileSync(featureGen.destinationPath('client/app/app.module.js'), 'utf8');
+        assert.equal(appFixture, generatedAppContent);
+        done();
+      });
   });
 
 });

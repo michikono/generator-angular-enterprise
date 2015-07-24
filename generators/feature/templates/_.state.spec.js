@@ -11,7 +11,7 @@
         angular.mock.module('<%= appName %>.<%= name %>');
 
         // Place template loading modules below here
-        // [INJECT:TEST_TEMPLATES] templates module for test loaded here, at this indent level. DO NOT REMOVE.
+        // [INJECT:ROUTE_TEST_TEMPLATES] templates module for test loaded here, at this indent level. DO NOT REMOVE.
       });
 
       beforeEach(inject(function (_$state_, _$templateCache_) {
@@ -19,7 +19,7 @@
         $templateCache = _$templateCache_;
       }));
 
-      // [INJECT:TESTS] Generated routes appear here, at this indent level. DO NOT REMOVE.
+      // [INJECT:ROUTE_TESTS] Generated routes appear here, at this indent level. DO NOT REMOVE.
     });
   });
 })();

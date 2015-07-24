@@ -1,5 +1,6 @@
 'use strict';
 var chalk = require('chalk');
+var path = require('path');
 var yosay = require('yosay');
 var changeCase = require('change-case');
 var _ = require('lodash');
@@ -37,6 +38,13 @@ module.exports = helpers.Base.extend({
       },
       {
         type: 'input',
+        name: 'appSubFolder',
+        message: 'Sub-folder (in client-side folder) for application code',
+        default: 'app/',
+        store: true
+      },
+      {
+        type: 'input',
         name: 'directivePrefix',
         message: 'Prefix added to all directives (see Y073 in style guide); enter nothing/space to skip this',
         store: true
@@ -47,13 +55,6 @@ module.exports = helpers.Base.extend({
         message: 'Which router would you like to use?',
         default: (this.config.get('uirouter') && 1) || 0,
         choices: ['Standard Angular Router', 'Angular UI Router']
-      },
-      {
-        type: 'input',
-        name: 'appSubFolder',
-        message: 'Sub-folder (in client-side folder) for application code',
-        default: 'app/',
-        store: true
       }];
 
     this.prompt(prompts, function (choices) {
@@ -87,85 +88,11 @@ module.exports = helpers.Base.extend({
 
   writing: {
     app: function () {
-      this.installTemplate(
-        this.templatePath('_package.json'),
-        this.destinationPath('package.json')
-      );
-      this.installTemplate(
-        this.templatePath('_bower.json'),
-        this.destinationPath('bower.json')
-      );
-      this.installTemplate(
-        this.templatePath('_karma.conf.js'),
-        this.destinationPath('karma.conf.js')
-      );
-      var gulpFiles = ['gulpfile.js', 'gulp/.jshintrc', 'gulp/build.js', 'gulp/conf.js', 'gulp/inject.js', 'gulp/scripts.js', 'gulp/server.js', 'gulp/watch.js', 'gulp/unit-tests.js', 'gulp/styles.js'];
-      var that = this;
-      _.each(gulpFiles, function (file) {
-        that.installTemplate(
-          that.templatePath(file),
-          that.destinationPath(file)
-        )
+      this.installTemplateFolder({
+        generator: this,
+        destination: path.join(this.config.get('clientSideFolder'), '..'),
+        fileMacros: {'_': changeCase.paramCase(this.name)}
       });
-    },
-
-    projectFiles: function () {
-      this.installTemplate(
-        this.templatePath('client/_index.html'),
-        this.destinationPath(this.config.get('clientSideFolder') + 'index.html')
-      );
-      this.installTemplate(
-        this.templatePath('client/_index.scss'),
-        this.destinationPath(this.config.get('clientSideFolder') + 'index.scss')
-      );
-      this.installTemplate(
-        this.templatePath('client/app/_app.config.js'),
-        this.destinationPath(this.config.get('clientSideFolder') + this.config.get('appSubFolder') + 'app.config.js')
-      );
-      this.installTemplate(
-        this.templatePath('client/app/_app.module.js'),
-        this.destinationPath(this.config.get('clientSideFolder') + this.config.get('appSubFolder') + 'app.module.js')
-      );
-      this.installTemplate(
-        this.templatePath('client/app/directives/directives.config.js'),
-        this.destinationPath(this.config.get('clientSideFolder') + this.config.get('appSubFolder') + 'directives/directives.config.js')
-      );
-      this.installTemplate(
-        this.templatePath('client/app/directives/directives.module.js'),
-        this.destinationPath(this.config.get('clientSideFolder') + this.config.get('appSubFolder') + 'directives/directives.module.js')
-      );
-      this.installTemplate(
-        this.templatePath('client/app/filters/filters.config.js'),
-        this.destinationPath(this.config.get('clientSideFolder') + this.config.get('appSubFolder') + 'filters/filters.config.js')
-      );
-      this.installTemplate(
-        this.templatePath('client/app/filters/filters.module.js'),
-        this.destinationPath(this.config.get('clientSideFolder') + this.config.get('appSubFolder') + 'filters/filters.module.js')
-      );
-      this.installTemplate(
-        this.templatePath('client/app/_app.providers.module.js'),
-        this.destinationPath(this.config.get('clientSideFolder') + this.config.get('appSubFolder') + 'app.providers.module.js')
-      );
-      this.installTemplate(
-        this.templatePath('client/app/core.config.js'),
-        this.destinationPath(this.config.get('clientSideFolder') + this.config.get('appSubFolder') + 'core.config.js')
-      );
-      this.installTemplate(
-        this.templatePath('client/app/core.module.js'),
-        this.destinationPath(this.config.get('clientSideFolder') + this.config.get('appSubFolder') + 'core.module.js')
-      );
-      this.installTemplate(
-        this.templatePath('editorconfig'),
-        this.destinationPath('.editorconfig')
-      );
-      this.installTemplate(
-        this.templatePath('jshintrc'),
-        this.destinationPath('.jshintrc')
-      );
-      this.installTemplate(
-        this.templatePath('jscsrc'),
-        this.destinationPath('.jscsrc')
-      );
     }
   },
 

@@ -1,6 +1,7 @@
 'use strict';
 var chalk = require('chalk');
 var changeCase = require('change-case');
+var path = require('path');
 var helpers = require('../../lib/helpers');
 
 module.exports = helpers.NamedBase.extend({
@@ -10,13 +11,18 @@ module.exports = helpers.NamedBase.extend({
     helpers.NamedBase.apply(this, arguments);
     this.log('Creating filter: ' + chalk.green(this.name) + '...');
     this.choices = {
-      name: changeCase.camelCase(this.name)
+      name: changeCase.camelCase(this.name),
+      nameParamCase: changeCase.paramCase(this.name)
     };
   },
 
   writing: {
     files: function () {
-      this.installTemplateFolder(this.choices.name, 'filter');
+      this.installTemplateFolder({
+        generator: this,
+        destination: path.join(this.config.get('clientSideFolder'), this.config.get('appSubFolder'), 'filters', this.choices.nameParamCase),
+        fileMacros: {'_': this.choices.nameParamCase}
+      });
     }
   }
 });
