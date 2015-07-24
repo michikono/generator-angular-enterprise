@@ -1,7 +1,7 @@
 var state = {
   url: '/<%= nameParamCase %>',
   templateUrl: '<%= appSubFolder %><%= nameParamCase %>/<%= nameParamCase %>.html',
-  controller: '<%= controllerName %>',
+  controller: '<%= namePascalCase %>Controller',
   controllerAs: 'vm',
   resolve: {}
 };
