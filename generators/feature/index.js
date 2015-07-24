@@ -21,9 +21,9 @@ module.exports = helpers.NamedBase.extend({
     routes: function () {
       var selector;
       if (this.config.get('uirouter')) {
-        selector = '{*.config.*,*.route.*,*.module.*,*.state.*}';
+        selector = '{*.config.*,*.module.*,*.state.*}';
       } else {
-        selector = '{*.config.*,*.route.*,*.module.*,*.route.*}';
+        selector = '{*.config.*,*.module.*,*.route.*}';
       }
 
       this.installTemplateFolder({
