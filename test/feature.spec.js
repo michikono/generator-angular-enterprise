@@ -37,7 +37,7 @@ describe("feature generation", function() {
     featureGen.run()
     .on('end', function() {
       var generatedFeatureModuleContent = fs.readFileSync(featureGen.destinationPath('client/app/my-feature/my-feature.module.js'), 'utf8');
-      var generatedFeatureRouteContent = fs.readFileSync(featureGen.destinationPath('client/app/my-feature/my-feature.route.js'), 'utf8');
+      var generatedFeatureRouteContent = fs.readFileSync(featureGen.destinationPath('client/app/my-feature/my-feature.state.js'), 'utf8');
       assert.equal(featureModuleFixture, generatedFeatureModuleContent);
       assert.equal(featureRouteFixtureUi, generatedFeatureRouteContent);
       done();

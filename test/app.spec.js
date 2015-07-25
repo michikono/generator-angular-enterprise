@@ -16,9 +16,6 @@ describe("app generation", function () {
 
   it('creates dependency and config files', function () {
     assert.file([
-      '.editorconfig',
-      '.jscsrc',
-      '.jshintrc',
       'bower.json',
       'gulpfile.js',
       'karma.conf.js',
