@@ -18,35 +18,37 @@ describe("controller generation", function() {
   });
   
   it('creates controller files', function (done) {
-    featureGen.run(function() {
-      helpers.mockPrompt(controllerGen, {
-        'moduleName': 'app.myFeature'
-      });
-      controllerGen.run()
+    featureGen.run()
       .on('end', function() {
-        assert.file([
-          'client/app/my-feature/my-controller.controller.js',
-          'client/app/my-feature/my-controller.controller.spec.js'
-        ]);
-        done();
+        helpers.mockPrompt(controllerGen, {
+          'moduleName': 'app.myFeature'
+        })
+        controllerGen.run()
+        .on('end', function() {
+          assert.file([
+            'client/app/my-feature/my-controller.controller.js',
+            'client/app/my-feature/my-controller.controller.spec.js'
+          ]);
+          done();
+        });
       });
-    });
 
   });
 
   it('generates expected controller content', function(done) {
     var generatedControllerContent;
-    featureGen.run(function() {
-      helpers.mockPrompt(controllerGen, {
-        'moduleName': 'app.myFeature'
-      });
-      controllerGen.run()
+    featureGen.run()
       .on('end', function() {
-        var generatedControllerContent = fs.readFileSync(controllerGen.destinationPath('client/app/my-feature/my-controller.controller.js'), 'utf8');
-        assert.equal(controllerFixture, generatedControllerContent);
-        done();
+        helpers.mockPrompt(controllerGen, {
+          'moduleName': 'app.myFeature'
+        });
+        controllerGen.run()
+        .on('end', function() {
+          var generatedControllerContent = fs.readFileSync(controllerGen.destinationPath('client/app/my-feature/my-controller.controller.js'), 'utf8');
+          assert.equal(controllerFixture, generatedControllerContent);
+          done();
+        });
       });
-    });
   });
 
 });

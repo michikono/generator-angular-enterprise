@@ -8,7 +8,7 @@ var baseGenerator = require('./helpers/base-generator');
 var factoryFixture = fs.readFileSync(path.join(__dirname, '/fixtures/factory.js'), 'utf8');
 var factoryGen;
 
-describe("feature generation", function() {
+describe("factory generation", function() {
   beforeEach(function(done) {
     baseGenerator(function() {
       factoryGen = helpers.createGenerator('angular-enterprise:factory', [path.join(__dirname, '../generators/factory')], ['myFactory']);

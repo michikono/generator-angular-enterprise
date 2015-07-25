@@ -73,7 +73,7 @@ module.exports = helpers.NamedBase.extend({
     files: function () {
       this.installTemplateFolder({
         generator: this,
-        destination: path.join(this.config.get('clientSideFolder'), this.config.get('appSubFolder')),
+        destination: path.join(this.config.get('clientSideFolder'), this.config.get('appSubFolder'), this.choices.moduleNameParamCase),
         fileMacros: {'_': this.choices.nameParamCase}
       });
     }
