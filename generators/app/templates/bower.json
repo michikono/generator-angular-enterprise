@@ -16,6 +16,11 @@
     "angular-ui-utils": "~0.1",
     "bootstrap-sass-official": "~3.3.4",
     "angular-bootstrap": "~0.13.0",
-    "font-awesome": "~4.0"
+    "font-awesome": "~4.0",
+<% if (uirouter) { -%>
+    "angular-ui-router": "~0.2.15"
+<% } else { -%>
+    "angular-route": "~1.4.0"
+<% } -%>
   }
 }

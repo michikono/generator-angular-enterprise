@@ -137,10 +137,8 @@ MIT. Copyright (c) 2015 Michi Kono
 
 * Mocha (https://github.com/johnpapa/angular-styleguide#style-y191)
 * Run tests
-* ngannotate (https://github.com/johnpapa/angular-styleguide#style-y100)
 * Chai 
 * Sinon (https://github.com/johnpapa/angular-styleguide#style-y193)
 * Karma (https://github.com/johnpapa/angular-styleguide#style-y192)
 * Phantomjs (https://github.com/johnpapa/angular-styleguide#style-y194)
 * TypeScript or ES6
-* Closure wrapping of all files through gulp (https://github.com/johnpapa/angular-styleguide#style-y010)
