@@ -1,4 +1,6 @@
 var _ = require('lodash');
+var path = require('path');
+var changeCase = require('change-case');
 
 module.exports = function (Generator) {
   Generator.prototype.writing = {
