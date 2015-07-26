@@ -35,15 +35,15 @@
     "angular"
   ],
   "dependencies": {
-    "chalk": "^1.0.0",
+    "chalk": "~1.1.0",
     "change-case": "^2.3.0",
     "ejs": "^2.3.3",
     "glob": "^5.0.14",
     "lodash": "^3.10.0",
     "merge": "^1.2.0",
     "ng-parse-module": "^0.1.0",
-    "yeoman-generator": "^0.19.0",
-    "yosay": "^1.0.2"
+    "yeoman-generator": "~0.20.1",
+    "yosay": "~1.0.4"
   },
   "devDependencies": {
     "gulp": "^3.9.0",

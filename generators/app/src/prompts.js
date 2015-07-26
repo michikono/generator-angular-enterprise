@@ -4,7 +4,7 @@ var changeCase = require('change-case');
 
 
 module.exports = function(Generator) {
-  Generator.prototype.prompting = function() {
+  Generator.prototype.prompts = function() {
     var done = this.async();
 
     // Have Yeoman greet the user.
