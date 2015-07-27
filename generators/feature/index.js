@@ -36,7 +36,12 @@ module.exports = helpers.NamedBase.extend({
 
     modules: function () {
       helpers.addAngularModule(
-        this.config.get('clientSideFolder') + this.config.get('appSubFolder') + 'app.module.js',
+        path.join(
+          this.destinationPath(),
+          this.config.get('clientSideFolder'),
+          this.config.get('appSubFolder'),
+          'app.module.js'
+        ),
         this.config.get('appName') + '.' + this.choices.name
       );
     }
