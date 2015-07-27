@@ -7,12 +7,10 @@ module.exports = setupBaseGenerator = function(callback) {
         .withOptions({ skipInstall: true })
         .withPrompts({
           appName: 'app',
-          clientSideFolder: 'client',
-          directivePrefix: ' ',
-          appSubFolder: 'app'
+          appSubFolder: 'app/',
+          clientSideFolder: 'client/',
+          directivePrefix: ' '
         })
-        .on('end', function() {
-          callback();
-        });
+        .on('end', callback);
     });
 };
