@@ -128,6 +128,30 @@ alias ae='sh ~/.bin/ae.sh'
 5.Save this file, close it and open a new terminal (alternatively you can just `source` this file as well). Navigate to your project directory and make use of the new alias `ae`.
 
 
+## Contributing
+
+If you want to make changes to the generator, you'll want to make sure to observe our testing patterns. You can run tests with:
+
+```bash
+gulp test
+```
+
+And enable auto-testing via:
+
+```bash
+gulp watch
+```
+
+To develop on this generator, you will want to clone this repo and run:
+
+```bash
+npm link
+```
+
+This will "install" your local copy of this repository as a registered Yeoman generator. Note that the name of the
+project folder you clone to *must* match the name of this generator (e.g., `generator-...`).
+
+
 ## License
 
 MIT. Copyright (c) 2015 Michi Kono
