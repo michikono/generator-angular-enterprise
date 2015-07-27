@@ -9,9 +9,7 @@ var appFixture = fs.readFileSync(path.join(__dirname, './fixtures/app.module.js'
 
 describe("app generation", function () {
   beforeEach(function (done) {
-    baseGenerator(function () {
-      done();
-    });
+    baseGenerator(done);
   });
 
   it('creates dependency and config files', function () {

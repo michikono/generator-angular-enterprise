@@ -15,7 +15,7 @@ describe("directive generation", function() {
       done();
     });
   });
-  
+
   it('creates directive files', function (done) {
     directiveGen.run()
     .on('end', function() {
