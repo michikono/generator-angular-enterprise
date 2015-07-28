@@ -1,6 +1,6 @@
 # Generator Angular Enterprise [![Build Status](https://travis-ci.org/michikono/generator-angular-enterprise.svg?branch=master)](https://travis-ci.org/michikono/generator-angular-enterprise)
 
-** currently in progress **
+** Currently in progress; now in a usable state! **
 
 
 ## What is this?
@@ -14,15 +14,28 @@ Absolutely not. Most Angular tutorials teach _very_ bad patterns for creating la
 applications. Eventually, most devs hit a wall before realizing everybody else has abandoned 
 the practices their tutorials once endorsed.
 
-The known best practices are often called "enterprise" patterns simply because they aren't as 
+There are also a lot of really popular patterns that aren't always practiced in the JavaScript 
+community (such as code coverage analysis). This generator encourages some of these patterns as well.
+
+These known best practices are often called "enterprise" patterns simply because they aren't as 
 useful in small projects. This generator should be useful for any project that plans to expand 
 beyond a few primary states.
 
+## Main Features
 
-## What makes this generator superior to others
+* **Supports Typed Languages** - TypeScript/ES6 ready (beneficial to large teams)
+* **Enables Continuous Integration** - Out of the box support for [Travis](https://travis-ci.org/) and [Drone](https://github.com/drone/drone)
+* **Integrates with Enterprise APIs** - Integrated [Swagger-based](https://www.npmjs.com/package/swagger-server) server for mocked end points
+* **Encourages TDD + ATDD** - Built in build process for both unit and functional (e2e) testing 
+* **Performs Code Analysis** - Leverages some of the toolchain Best Practices (code coverage, complexity analysis, jshint, and JSCS)
+* **Teaches Best Practices** - Clearly labels code structures based on best practices (see next section)
 
-* Whenever possible, rules are directly linked to the standards guide where invoked. This will help prevent future 
-  developers from undoing your hard work. For example, when generating a feature:
+
+### Best Practices Annotations
+
+Whenever possible, rules are directly linked to the standards guide where invoked. This will help ensure future 
+developers continue building on the best practices. For example, when generating a controller:
+
 ````javascript
 // start example snippet ...
 /**
@@ -44,11 +57,7 @@ angular
 function AboutPageController() {
 // ... end example snippet
 ````
-* Generates extremely standard tests (no obscure libraries except those designated as Best Practices) 
-* Generates... uh, tests!
-* Leverages some of the toolchain Best Practices as well (jshint and jscs)
-* Contains sub-generators (used after the initial project is generated)
-* Supports both Angular Router and UI Router
+
 
 ## Installation
 
@@ -68,22 +77,59 @@ yo angular-enterprise
 And then create your application's starting point:
 
 ```bash
-yo angular-enterprise:feature myStartingPage
+yo angular-enterprise:feature myStartingSection
 ```
 
 For example, the above would generate the following folder/files in your designated application folder:
 
     app/
-        my-starting-page/
+        my-starting-section/
+            my-starting-section.module.js
+            my-starting-section.route.js
+            my-starting-section.route.spec.js
+
+You would then add sub-components such as controllers to this module:
+
+Then, initiate the generator:
+
+```bash
+yo angular-enterprise:controller myStartingController
+```
+
+Now your app looks like this:
+
+    app/
+        my-starting-section/
             my-starting-page.controller.js
             my-starting-page.controller.spec.js
             my-starting-page.html
-            my-starting-page.module.js
-            my-starting-page.route.js
-            my-starting-page.route.spec.js
-
+            my-starting-section.module.js
+            my-starting-section.route.js # <= modified with new routes
+            my-starting-section.route.spec.js # <= modified with new routes
+            
 
 ## Other commands
+
+Running the app:
+
+```bash
+gulp serve
+```
+
+Running tests:
+
+```bash
+npm test
+```
+
+While developing, run tests and refresh the app automatically as you make changes:
+
+```bash
+gulp watch
+```
+
+
+### Other Generators
 
 ```bash
 yo angular-enterprise:directive myDirective # "myDirective" is the camel case representation of your directive name
@@ -154,15 +200,13 @@ project folder you clone to *must* match the name of this generator (e.g., `gene
 
 ## License
 
-MIT. Copyright (c) 2015 Michi Kono
+MIT. Copyright (c) 2015 Michi Kono, John Katsnelson, Forrest Thomas
 
 
 ## Still todo ##
 
-* Mocha (https://github.com/johnpapa/angular-styleguide#style-y191)
-* Run tests
-* Chai 
-* Sinon (https://github.com/johnpapa/angular-styleguide#style-y193)
-* Karma (https://github.com/johnpapa/angular-styleguide#style-y192)
-* Phantomjs (https://github.com/johnpapa/angular-styleguide#style-y194)
-* TypeScript or ES6
+* Built in support for mocked server (Swagger)
+* TypeScript support
+* Closure-ifying all files instead of manually doing it
+* Code coverage analysis (cyclomatic, halstead)
+* Complexity analysis
