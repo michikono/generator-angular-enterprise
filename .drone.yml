@@ -1,0 +1,14 @@
+image: bradrydzewski/node:0.10 
+env:
+  - GOPATH=/var/cache/drone
+script:
+  - npm install
+  - bower install
+  - gulp test
+#services:
+#  - redis
+#notify:
+#  email:
+#    recipients:
+#      - brad@drone.io
+#      - burke@drone.io
