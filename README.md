@@ -93,7 +93,7 @@ You would then add sub-components such as controllers to this module:
 Then, initiate the generator:
 
 ```bash
-yo angular-enterprise:controller myStartingController
+yo angular-enterprise:controller myStartingPage
 ```
 
 Now your app looks like this:
