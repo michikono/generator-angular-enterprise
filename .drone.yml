@@ -2,6 +2,7 @@ image: bradrydzewski/node:0.10
 env:
   - GOPATH=/var/cache/drone
 script:
+  - npm install -g yo bower gulp
   - npm install
   - bower install
   - gulp test
