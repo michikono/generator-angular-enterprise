@@ -11,6 +11,7 @@ var featureRouteFixtureNg = fs.readFileSync(path.join(__dirname, '/fixtures/ng.f
 var featureGen;
 
 describe("feature generation", function() {
+
   beforeEach(function(done) {
     baseGenerator(function() {
       featureGen = helpers.createGenerator('angular-enterprise:feature', [path.join(__dirname, '../generators/feature')], ['myFeature']);
