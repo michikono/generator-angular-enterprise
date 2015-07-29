@@ -46,7 +46,15 @@ module.exports = function(Generator) {
         message: 'Which router would you like to use?',
         default: (this.config.get('uirouter') && 1) || 0,
         choices: ['Standard Angular Router', 'Angular UI Router']
+      },
+      {
+        type: 'confirm',
+        name: 'swagger',
+        message: 'Would you like to mock your api with Swagger?',
+        default: true,
+        store: true
       }];
+
 
     this.prompt(prompts, function (choices) {
       this.choices = choices;
@@ -72,6 +80,7 @@ module.exports = function(Generator) {
       this.config.set('appSubFolder', this.choices.appSubFolder);
       this.config.set('directivePrefix', this.choices.directivePrefix);
       this.config.set('uirouter', this.choices.uirouter);
+      this.config.set('swagger', this.choices.swagger);
 
       done();
     }.bind(this));

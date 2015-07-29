@@ -1,0 +1,42 @@
+
+swagger: "2.0"
+info:
+  version: 1.0.0
+  title: Example
+  description: An example API
+
+host: demo.api.com:3002
+
+basePath: '/api'
+
+consumes:
+  - application/json
+produces:
+  - application/json
+
+definitions:
+  example:
+    type: object
+    required:
+      - name
+    properties:
+      name:
+        type: string
+        minLength: 4
+        pattern: "^[a-zA-Z0-9- ]+$"
+
+paths:
+  /examples:
+    get:
+      description: Returns an empty array
+      responses:
+        default:
+          description: Returns an empty array
+          schema:
+            type: array
+            items:
+              $ref: example
+          headers:
+            last-modified:
+              type: string
+              description: The date/time 
