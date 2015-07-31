@@ -45,7 +45,7 @@ module.exports = function(Generator) {
         name: 'router',
         message: 'Which router would you like to use?',
         default: (this.config.get('uirouter') && 1) || 0,
-        choices: ['Standard Angular Router', 'Angular UI Router']
+        choices: ['Angular UI Router', 'Standard Angular Router']
       },
       {
         type: 'confirm',
