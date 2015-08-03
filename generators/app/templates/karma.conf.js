@@ -42,7 +42,7 @@ module.exports = function(config) {
       'angular-mocks',
       'angular-resource',
       'angular-ui-utils',
-      <% if(uirouter){ %>
+      <% if (uirouter) { %>
         'angular-ui-router'
       <% } else{ %>
         'angular-route'

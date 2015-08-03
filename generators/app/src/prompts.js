@@ -49,6 +49,13 @@ module.exports = function(Generator) {
       },
       {
         type: 'confirm',
+        name: 'bootstrap',
+        message: "Would you like Bootstrap?",
+        default: true,
+        store: true
+      },
+      {
+        type: 'confirm',
         name: 'swagger',
         message: 'Would you like to mock your api with Swagger?',
         default: true,
@@ -81,6 +88,7 @@ module.exports = function(Generator) {
       this.config.set('directivePrefix', this.choices.directivePrefix);
       this.config.set('uirouter', this.choices.uirouter);
       this.config.set('swagger', this.choices.swagger);
+      this.config.set('bootstrap', this.choices.bootstrap);
 
       done();
     }.bind(this));

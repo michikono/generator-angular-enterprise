@@ -24,10 +24,12 @@ exports.paths = {
  *  Mainly used to inject script tags in the index.html but also used
  *  to inject css preprocessor deps and js files in karma
  */
+<% if (bootstrap) { -%>
 exports.wiredep = {
   exclude: [/jquery/, /bootstrap.js$/, /bootstrap-sass-official\/.*\.js/, /bootstrap\.css/],
   directory: 'bower_components'
 };
+<% } -%>
 
 /**
  *  Common implementation for an error handler of a Gulp plugin
