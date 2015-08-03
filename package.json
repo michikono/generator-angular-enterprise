@@ -1,10 +1,10 @@
 {
-  "name": "generator-angular-enterprise",
+  "name": "generator-hestia",
   "version": "0.0.0",
   "description": "Angular Enterprise Yeoman generator",
   "license": "MIT",
   "main": "app/index.js",
-  "repository": "michikono/generator-angular-enterprise",
+  "repository": "placeholder/generator-hestia",
   "author": {
     "name": "Michi Kono",
     "email": "michikono@gmail.com",
@@ -22,6 +22,9 @@
       "url": "https://github.com/forrestbthomas"
     }
   ],
+  "bin": {
+    "hestia": "./bin/hestia.js"
+  },
   "scripts": {
     "test": "mocha -G --reporter nyan test/"
   },
@@ -39,6 +42,7 @@
     "change-case": "^2.3.0",
     "ejs": "^2.3.3",
     "glob": "^5.0.14",
+    "kexec": "^1.2.0",
     "lodash": "^3.10.0",
     "merge": "^1.2.0",
     "ng-parse-module": "^0.1.0",
