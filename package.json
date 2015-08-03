@@ -4,7 +4,7 @@
   "description": "Angular Enterprise Yeoman generator",
   "license": "MIT",
   "main": "app/index.js",
-  "repository": "michikono/generator-hestia",
+  "repository": "placeholder/generator-hestia",
   "author": {
     "name": "Michi Kono",
     "email": "michikono@gmail.com",
@@ -23,7 +23,7 @@
     }
   ],
   "bin": {
-    "clone": "./bin/clone.js"
+    "hestia": "./bin/hestia.js"
   },
   "scripts": {
     "test": "mocha -G --reporter nyan test/"
