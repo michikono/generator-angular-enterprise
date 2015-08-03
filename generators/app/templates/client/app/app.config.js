@@ -8,6 +8,7 @@
   angular.module('<%= appName %>').config(config);
 
   /* @ngInject */
-  function config() {
+  function config($provide) {
+  	// [INJECT:DECORATORS] Generated decorators appear here, at this indent level. DO NOT REMOVE. 
   }
 })();
