@@ -14,11 +14,11 @@ describe("feature generation", function() {
 
   beforeEach(function(done) {
     baseGenerator(function() {
-      featureGen = helpers.createGenerator('angular-enterprise:feature', [path.join(__dirname, '../generators/feature')], ['myFeature']);
+      featureGen = helpers.createGenerator('hestia:feature', [path.join(__dirname, '../generators/feature')], ['myFeature']);
       done();
     });
   });
-  
+
   it('creates feature files', function (done) {
     featureGen.run()
     .on('end', function() {

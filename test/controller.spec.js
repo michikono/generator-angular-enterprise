@@ -11,8 +11,8 @@ var controllerGen, featureGen;
 describe("controller generation", function () {
   beforeEach(function (done) {
     baseGenerator(function () {
-      featureGen = helpers.createGenerator('angular-enterprise:feature', [path.join(__dirname, '../generators/feature')], ['myFeature']);
-      controllerGen = helpers.createGenerator('angular-enterprise:controller', [path.join(__dirname, '../generators/controller')], ['myController']);
+      featureGen = helpers.createGenerator('hestia:feature', [path.join(__dirname, '../generators/feature')], ['myFeature']);
+      controllerGen = helpers.createGenerator('hestia:controller', [path.join(__dirname, '../generators/controller')], ['myController']);
       done();
     });
   });

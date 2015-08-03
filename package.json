@@ -1,7 +1,7 @@
 {
   "name": "generator-hestia",
   "version": "0.0.0",
-  "description": "Angular Enterprise Yeoman generator",
+  "description": "Hestia Yeoman generator",
   "license": "MIT",
   "main": "app/index.js",
   "repository": "placeholder/generator-hestia",

@@ -11,11 +11,11 @@ var serviceGen;
 describe("service generation", function() {
   beforeEach(function(done) {
     baseGenerator(function() {
-      serviceGen = helpers.createGenerator('angular-enterprise:service', [path.join(__dirname, '../generators/service')], ['myService']);
+      serviceGen = helpers.createGenerator('hestia:service', [path.join(__dirname, '../generators/service')], ['myService']);
       done();
     });
   });
-  
+
   it('creates service files', function (done) {
     serviceGen.run()
     .on('end', function() {

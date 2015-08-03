@@ -46,7 +46,7 @@ describe("app generation", function () {
   });
 
   it('generates expected app content', function (done) {
-    var featureGen = helpers.createGenerator('angular-enterprise:feature', [path.join(__dirname, '../generators/feature')], ['myFeature']);
+    var featureGen = helpers.createGenerator('hestia:feature', [path.join(__dirname, '../generators/feature')], ['myFeature']);
     featureGen.run()
       .on('end', function () {
         var generatedAppContent = fs.readFileSync(featureGen.destinationPath('client/app/app.module.js'), 'utf8');

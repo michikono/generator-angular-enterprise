@@ -4,7 +4,9 @@
   "description": "Enterprise Angular Application Generated EA Generator",
   "dependencies": {},
   "scripts": {
-    "test": "gulp test"
+    "test": "gulp test",
+    "serve": "gulp serve",
+    "build": "gulp build"
   },
   "devDependencies": {
     "gulp": "~3.9.0",
