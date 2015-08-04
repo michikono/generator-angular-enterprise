@@ -16,8 +16,6 @@ var hintOptions = {
 
 gulp.task('lint:html', function() {
   return gulp.src(path.join(conf.paths.src, '**/**.html'))
-    .pipe(htmlhint({
-
-    }))
+    .pipe(htmlhint(hintOptions))
     .pipe(htmlhint.reporter());
 });
