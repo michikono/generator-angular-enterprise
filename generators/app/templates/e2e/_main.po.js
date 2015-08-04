@@ -6,7 +6,7 @@
 'use strict';
 
 var MainPage = function() {
-  this.mainEl = element(by.css('.lead'));
+  this.mainEl = element(by.css('h2'));
 };
 
 module.exports = new MainPage();
