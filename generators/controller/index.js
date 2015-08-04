@@ -27,46 +27,52 @@ module.exports = helpers.NamedBase.extend({
       return _.startsWith(m, this.config.get('appName') + '.') && m !== (this.config.get('appName') + '.core');
     }, this).sort();
 
-    var prompts = [
-      {
-        type: 'list',
-        name: 'moduleName',
-        message: 'Which module does this controller belong in?',
-        choices: customModules
-      }];
+    if (!customModules.length) {
+      this.env.error(chalk.red("There are no features in this app. Please generate a feature before generating a controller. \nFor example, 'hestia feature myFeature'."));
+    } else {
+      var prompts = [
+        {
+          type: 'list',
+          name: 'moduleName',
+          message: 'Which module does this controller belong in?',
+          choices: customModules
+        }];
 
-    this.prompt(prompts, function (choices) {
-      this.choices.moduleName = choices.moduleName.replace(this.config.get('appName') + '.', '');
-      this.choices.moduleNameParamCase = changeCase.paramCase(this.choices.moduleName);
-      var routeFilePrefix = this.destinationPath(
-        this.config.get('clientSideFolder') + this.config.get('appSubFolder')
-        + changeCase.paramCase(this.choices.moduleName) + '/'
-      );
+      this.prompt(prompts, function (choices) {
+        this.choices.moduleName = choices.moduleName.replace(this.config.get('appName') + '.', '');
+        this.choices.moduleNameParamCase = changeCase.paramCase(this.choices.moduleName);
+        var routeFilePrefix = this.destinationPath(
+          this.config.get('clientSideFolder') + this.config.get('appSubFolder')
+          + changeCase.paramCase(this.choices.moduleName) + '/'
+        );
 
-      var fileType = ((this.config.get('uirouter') && 'state') || 'route');
+        var fileType = ((this.config.get('uirouter') && 'state') || 'route');
 
-      this.injectTemplatePartial(
-        this,
-        this.templatePath('partial.' + fileType + '.js'),
-        'INJECT:ROUTES',
-        routeFilePrefix + changeCase.paramCase(this.choices.moduleName) + '.' + fileType + '.js'
-      );
+        this.injectTemplatePartial(
+          this,
+          this.templatePath('partial.' + fileType + '.js'),
+          'INJECT:ROUTES',
+          routeFilePrefix + changeCase.paramCase(this.choices.moduleName) + '.' + fileType + '.js'
+        );
 
-      this.injectTemplatePartial(
-        this,
-        this.templatePath('partial.' + fileType + '.spec.js'),
-        'INJECT:ROUTE_TESTS',
-        routeFilePrefix + changeCase.paramCase(this.choices.moduleName) + '.' + fileType + '.spec.js'
-      );
+        this.injectTemplatePartial(
+          this,
+          this.templatePath('partial.' + fileType + '.spec.js'),
+          'INJECT:ROUTE_TESTS',
+          routeFilePrefix + changeCase.paramCase(this.choices.moduleName) + '.' + fileType + '.spec.js'
+        );
 
-      this.injectTemplatePartial(
-        this,
-        this.templatePath('partial.route-view.js'),
-        'INJECT:ROUTE_TEST_TEMPLATES',
-        routeFilePrefix + changeCase.paramCase(this.choices.moduleName) + '.' + fileType + '.spec.js'
-      );
-      done();
-    }.bind(this));
+        this.injectTemplatePartial(
+          this,
+          this.templatePath('partial.route-view.js'),
+          'INJECT:ROUTE_TEST_TEMPLATES',
+          routeFilePrefix + changeCase.paramCase(this.choices.moduleName) + '.' + fileType + '.spec.js'
+        );
+        done();
+      }.bind(this));
+      
+    }
+
   },
 
   writing: {
