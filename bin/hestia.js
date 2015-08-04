@@ -15,7 +15,6 @@ var help = function () {
   console.log(" ");
 };
 
-var output;
 var options = {
 	feature: true,
 	directive: true,
@@ -23,7 +22,8 @@ var options = {
 	factory: true,
 	service: true,
 	controller: true,
-	e2e: true
+	e2e: true,
+  decorator: true
 };
 
 if ( process.argv.length <= 2 || process.argv.length > 4 ) {
@@ -41,7 +41,7 @@ if ( process.argv.length === 3 ) {
 
 if ( process.argv.length === 4 ) {
   if ( options[process.argv[2]] ) {
-    output = kexec("yo", ["hestia:" + process.argv[2], process.argv[3]]);
+    kexec("yo", ["hestia:" + process.argv[2], process.argv[3]]);
   } else {
     help();
   }
