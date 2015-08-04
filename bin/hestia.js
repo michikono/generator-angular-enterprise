@@ -12,17 +12,18 @@ var help = function () {
   console.log("hestia service myService         : Generate new service, named myService");
   console.log("hestia controller myController   : Generate new controller, named myController");
   console.log("hestia e2e myFeature             : Generate new e2e test for myFeature");
+  console.log("hestia decorator \$http          : Generate new decorator for $http service");
   console.log(" ");
 };
 
 var options = {
-	feature: true,
-	directive: true,
-	filter: true,
-	factory: true,
-	service: true,
-	controller: true,
-	e2e: true,
+  feature: true,
+  directive: true,
+  filter: true,
+  factory: true,
+  service: true,
+  controller: true,
+  e2e: true,
   decorator: true
 };
 
