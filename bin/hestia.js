@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-var spawnSync = require('child_process').spawnSync;
 var kexec = require('kexec');
 
 var help = function () {
@@ -13,18 +12,19 @@ var help = function () {
   console.log("hestia service myService         : Generate new service, named myService");
   console.log("hestia controller myController   : Generate new controller, named myController");
   console.log("hestia e2e myFeature             : Generate new e2e test for myFeature");
+  console.log("hestia decorator \$http          : Generate new decorator for $http service");
   console.log(" ");
 };
 
-var output;
 var options = {
-	feature: true,
-	directive: true,
-	filter: true,
-	factory: true,
-	service: true,
-	controller: true,
-	e2e: true
+  feature: true,
+  directive: true,
+  filter: true,
+  factory: true,
+  service: true,
+  controller: true,
+  e2e: true,
+  decorator: true
 };
 
 if ( process.argv.length <= 2 || process.argv.length > 4 ) {
@@ -42,8 +42,7 @@ if ( process.argv.length === 3 ) {
 
 if ( process.argv.length === 4 ) {
   if ( options[process.argv[2]] ) {
-    output = spawnSync("yo", ["hestia:" + process.argv[2], process.argv[3]]);
-    console.log(output.stderr.toString());
+    kexec("yo", ["hestia:" + process.argv[2], process.argv[3]]);
   } else {
     help();
   }

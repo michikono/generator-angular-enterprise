@@ -5,10 +5,16 @@
 (function () {
   'use strict';
 
-  angular.module('<%= appName %>').config(config);
+  angular.module('app').config(config);
 
   /* @ngInject */
   function config($provide) {
+
+  	function logDecorator($delegate) {
+  	  return {};
+  	};
+
+  	$provide.decorator("log", logDecorator);
   	// [INJECT:DECORATORS] Generated decorators appear here, at this indent level. DO NOT REMOVE. 
   }
 })();
