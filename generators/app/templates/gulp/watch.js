@@ -10,9 +10,13 @@ function isOnlyChange(event) {
   return event.type === 'changed';
 }
 
+gulp.task('reload', function() {
+  browserSync.reload();
+});
+
 gulp.task('watch', ['inject'], function () {
 
-  gulp.watch([path.join(conf.paths.src, '/*.html'), 'bower.json'], ['inject']);
+  gulp.watch([path.join(conf.paths.src, '/*.html'), 'bower.json'], ['lint:html', 'inject']);
 
   gulp.watch([
     path.join(conf.paths.src, '/**/*.css'),
@@ -34,7 +38,5 @@ gulp.task('watch', ['inject'], function () {
     }
   });
 
-  gulp.watch(path.join(conf.paths.src, '/app/**/*.html'), function(event) {
-    browserSync.reload(event.path);
-  });
+  gulp.watch(path.join(conf.paths.src, '/app/**/*.html'), ['lint:html', 'reload']);
 });
