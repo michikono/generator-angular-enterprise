@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-var spawnSync = require('child_process').spawnSync;
 var kexec = require('kexec');
 
 var help = function () {
@@ -42,8 +41,7 @@ if ( process.argv.length === 3 ) {
 
 if ( process.argv.length === 4 ) {
   if ( options[process.argv[2]] ) {
-    output = spawnSync("yo", ["hestia:" + process.argv[2], process.argv[3]]);
-    console.log(output.stderr.toString());
+    output = kexec("yo", ["hestia:" + process.argv[2], process.argv[3]]);
   } else {
     help();
   }
