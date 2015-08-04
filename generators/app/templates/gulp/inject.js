@@ -12,16 +12,16 @@ var browserSync = require('browser-sync');
 
 gulp.task('inject', ['scripts', 'styles'], function () {
   var injectStyles = gulp.src([
-    path.join(conf.paths.tmp, '/serve/app/*.css'),
-    path.join('!' + conf.paths.tmp, '/serve/app/vendor.css')
+    path.join(conf.paths.tmp, '/serve/<%= appSubFolder %>*.css'),
+    path.join('!' + conf.paths.tmp, '/serve/<%= appSubFolder %>vendor.css')
   ], { read: false });
 
   var injectScripts = gulp.src([
-    path.join(conf.paths.src, '/app/*.module.js'),
-    path.join(conf.paths.src, '/app/**/*.module.js'),
-    path.join(conf.paths.src, '/app/**/*.js'),
-    path.join('!' + conf.paths.src, '/app/**/*.spec.js'),
-    path.join('!' + conf.paths.src, '/app/**/*.mock.js')
+    path.join(conf.paths.src, '/<%= appSubFolder %>*.module.js'),
+    path.join(conf.paths.src, '/<%= appSubFolder %>**/*.module.js'),
+    path.join(conf.paths.src, '/<%= appSubFolder %>**/*.js'),
+    path.join('!' + conf.paths.src, '/<%= appSubFolder %>**/*.spec.js'),
+    path.join('!' + conf.paths.src, '/<%= appSubFolder %>**/*.mock.js')
   ])
   .pipe($.angularFilesort()).on('error', conf.errorHandler('AngularFilesort'));
 
