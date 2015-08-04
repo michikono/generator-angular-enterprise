@@ -13,8 +13,12 @@ module.exports = function (Generator) {
 		this.installTemplateFolder({
 			generator: this,
 			destination: path.join(this.config.get('clientSideFolder'), '..'),
-			fileMacros: {'_': changeCase.paramCase(this.name)},
-			globOptions: globOptions
+			fileMacros: {
+				'_': changeCase.paramCase(this.name),
+				'%CLIENTSIDEFOLDER%': this.config.get('clientSideFolder'),
+				'%APPSUBFOLDER%': this.config.get('appSubFolder')
+			},
+			globOptions: globOptions,
 		});
     }
   }

@@ -30,7 +30,7 @@ gulp.task('watch', ['inject'], function () {
   });
 
 
-  gulp.watch(path.join(conf.paths.src, '/app/**/*.js'), function(event) {
+  gulp.watch(path.join(conf.paths.src, '/<%= appSubFolder %>**/*.js'), function(event) {
     if(isOnlyChange(event)) {
       gulp.start('scripts');
     } else {
@@ -38,5 +38,5 @@ gulp.task('watch', ['inject'], function () {
     }
   });
 
-  gulp.watch(path.join(conf.paths.src, '/app/**/*.html'), ['lint:html', 'reload']);
+  gulp.watch(path.join(conf.paths.src, '/<%= appSubFolder %>**/*.html'), ['lint:html', 'reload']);
 });

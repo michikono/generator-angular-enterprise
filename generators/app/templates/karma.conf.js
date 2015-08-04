@@ -14,8 +14,8 @@ function listFiles() {
 
   return wiredep(wiredepOptions).js
     .concat([
-      path.join(conf.paths.src, '/app/**/*.module.js'),
-      path.join(conf.paths.src, '/app/**/*.js'),
+      path.join(conf.paths.src, '/<%= appSubFolder %>**/*.module.js'),
+      path.join(conf.paths.src, '/<%= appSubFolder %>**/*.js'),
       path.join(conf.paths.src, '/**/*.spec.js'),
       path.join(conf.paths.src, '/**/*.mock.js'),
       path.join(conf.paths.src, '/**/*.html')
@@ -68,7 +68,7 @@ module.exports = function(config) {
     ],
 
     preprocessors: {
-      'client/app/**/*.html': ['ng-html2js']
+      '<%= clientSideFolder %>/<%= appSubFolder %>**/*.html': ['ng-html2js']
     }
   };
 
