@@ -19,7 +19,6 @@ function listFiles() {
       path.join(conf.paths.src, '/**/*.spec.js'),
       path.join(conf.paths.src, '/**/*.mock.js'),
       path.join(conf.paths.src, '/**/*.html')
-      // path.join(conf.paths.bower, '/angular*/angular*.js')
     ]);
 }
 
@@ -32,7 +31,7 @@ module.exports = function(config) {
 
     autoWatch: false,
 
-    frameworks: ['bower', 'jasmine', 'angular-filesort'],
+    frameworks: ['jasmine', 'angular-filesort'],
 
     bowerPackages: [
       'angular',
@@ -42,16 +41,18 @@ module.exports = function(config) {
       'angular-mocks',
       'angular-resource',
       'angular-ui-utils',
-      <% if (uirouter) { %>
-        'angular-ui-router'
-      <% } else{ %>
-        'angular-route'
-      <% } %>
+    <% if (uirouter) { -%>
+      'angular-ui-router'
+    <% } else{ -%>
+      'angular-route'
+    <% } -%>
     ],
 
     angularFilesort: {
       whitelist: [path.join(conf.paths.src, '/**/!(*.html|*.spec|*.mock).js')]
     },
+
+    reporters: ['progress', 'coverage'],
 
     ngHtml2JsPreprocessor: {
       stripPrefix: conf.paths.src + '/',
@@ -60,15 +61,29 @@ module.exports = function(config) {
     browsers : ['PhantomJS'],
 
     plugins : [
-      'karma-bower',
       'karma-phantomjs-launcher',
       'karma-angular-filesort',
+      'karma-coverage',
       'karma-jasmine',
       'karma-ng-html2js-preprocessor'
     ],
 
     preprocessors: {
+      '<%= clientSideFolder %>/<%= appSubFolder %>/**/!(*.spec).js': ['coverage'],
       '<%= clientSideFolder %>/<%= appSubFolder %>**/*.html': ['ng-html2js']
+    },
+
+    // optionally, configure the reporter
+    coverageReporter: {
+      reporters: [
+        {
+          type : 'lcov',
+          dir : 'coverage/'
+        },
+        {
+          type: 'text-summary'
+        }
+      ]
     }
   };
 
