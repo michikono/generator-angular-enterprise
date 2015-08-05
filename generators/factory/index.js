@@ -20,7 +20,7 @@ module.exports = helpers.NamedBase.extend({
       this.installTemplateFolder({
         generator: this,
         destination: path.join(this.config.get('clientSideFolder'), this.config.get('appSubFolder'), 'providers/'),
-        fileMacros: {'_': changeCase.paramCase(this.name)}
+        fileMacros: {NAME: changeCase.paramCase(this.name)}
       });
     }
   }

@@ -4,6 +4,7 @@
   "description": "Enterprise Angular Application Generated EA Generator",
   "dependencies": {},
   "scripts": {
+    "preinstall": "npm install -g yo bower gulp karma",
     "test": "gulp test",
     "serve": "gulp serve",
     "build": "gulp build"

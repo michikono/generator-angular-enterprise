@@ -20,7 +20,7 @@ module.exports = helpers.NamedBase.extend({
   },
 
   writing: {
-    files: function() {
+    files: function () {
       this.choices = {
         name: changeCase.camelCase(this.name),
         nameParamCase: changeCase.paramCase(this.name),

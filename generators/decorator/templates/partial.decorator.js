@@ -3,4 +3,4 @@ function <%= nameParamCase%>Decorator($delegate) {
   return {};
 };
 
-$provide.decorator("<%= nameParamCase %>", <%= nameParamCase%>Decorator);
+$provide.decorator('<%= nameParamCase %>', <%= nameParamCase%>Decorator);

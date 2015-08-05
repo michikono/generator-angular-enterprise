@@ -25,7 +25,7 @@ module.exports = helpers.NamedBase.extend({
       this.installTemplateFolder({
         generator: this,
         destination: path.join('e2e', this.choices.nameParamCase),
-        fileMacros: {'_': this.choices.nameParamCase}
+        fileMacros: {NAME: this.choices.nameParamCase}
       });
     }
   }
