@@ -31,7 +31,7 @@ module.exports = function(config) {
 
     autoWatch: false,
 
-    frameworks: ['bower', 'jasmine', 'angular-filesort'],
+    frameworks: ['jasmine', 'angular-filesort'],
 
     bowerPackages: [
       'angular',
@@ -61,11 +61,10 @@ module.exports = function(config) {
     browsers : ['PhantomJS'],
 
     plugins : [
-      'karma-bower',
       'karma-phantomjs-launcher',
       'karma-angular-filesort',
-      'karma-jasmine',
       'karma-coverage',
+      'karma-jasmine',
       'karma-ng-html2js-preprocessor'
     ],
 
@@ -76,8 +75,15 @@ module.exports = function(config) {
 
     // optionally, configure the reporter
     coverageReporter: {
-      type : 'html',
-      dir : 'coverage/'
+      reporters: [
+        {
+          type : 'lcov',
+          dir : 'coverage/'
+        },
+        {
+          type: 'text-summary'
+        }
+      ]
     }
   };
 
