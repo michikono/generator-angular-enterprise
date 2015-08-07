@@ -10,10 +10,10 @@
    *   https://github.com/johnpapa/angular-styleguide#style-y165
    */
   angular.module('<%= appName %>.core', [
+  <% if (bootstrap) { -%>
     'ui.bootstrap',
-    'ui.utils',
+  <% } -%>
     '<%= routerModuleName %>',
-    'ngAnimate',
     '<%= appName %>.directives',
     '<%= appName %>.filters',
     '<%= appName %>.providers'
