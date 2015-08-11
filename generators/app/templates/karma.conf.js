@@ -35,12 +35,6 @@ module.exports = function(config) {
 
     bowerPackages: [
       'angular',
-      'angular-animate',
-      'angular-bootstrap',
-      'angular-cookies',
-      'angular-mocks',
-      'angular-resource',
-      'angular-ui-utils',
     <% if (uirouter) { -%>
       'angular-ui-router'
     <% } else{ -%>

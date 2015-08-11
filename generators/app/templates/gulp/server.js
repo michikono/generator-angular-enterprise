@@ -11,6 +11,7 @@ var browserSyncSpa = require('browser-sync-spa');
 var util = require('util');
 
 var proxyMiddleware = require('http-proxy-middleware');
+var lodash = require('lodash');
 
 function browserSyncInit(baseDir, browser) {
   browser = browser === undefined ? 'default' : browser;
@@ -47,22 +48,24 @@ function browserSyncInit(baseDir, browser) {
 browserSync.use(browserSyncSpa({
   selector: '[ng-app]'// Only needed for angular apps
 }));
+var serverSynonyms = ['s', 'serve', 'server', 'servalicious'];
 
-gulp.task('serve', ['watch'], function () {
-  browserSyncInit([path.join(conf.paths.tmp, '/serve'), conf.paths.src]);
+serverSynonyms.map(function(s) {
+  gulp.task(s, ['watch'], function() {
+    browserSyncInit([path.join(conf.paths.tmp, '/serve'), conf.paths.src]);
+  });
+  gulp.task(s+':dist', ['build'], function () {
+    browserSyncInit(conf.paths.dist);
+  });
+  gulp.task(s+':e2e', ['inject'], function () {
+    browserSyncInit([conf.paths.tmp + '/serve', conf.paths.src], []);
+  });
+  gulp.task(s+':e2e-dist', ['build'], function () {
+    browserSyncInit(conf.paths.dist, []);
+  });
 });
 
-gulp.task('serve:dist', ['build'], function () {
-  browserSyncInit(conf.paths.dist);
-});
 
-gulp.task('serve:e2e', ['inject'], function () {
-  browserSyncInit([conf.paths.tmp + '/serve', conf.paths.src], []);
-});
-
-gulp.task('serve:e2e-dist', ['build'], function () {
-  browserSyncInit(conf.paths.dist, []);
-});
 
 gulp.task('swagger', function() {
   run('node api/server.js').exec();
