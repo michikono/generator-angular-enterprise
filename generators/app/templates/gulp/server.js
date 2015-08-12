@@ -48,6 +48,7 @@ function browserSyncInit(baseDir, browser) {
 browserSync.use(browserSyncSpa({
   selector: '[ng-app]'// Only needed for angular apps
 }));
+
 var serverSynonyms = ['s', 'serve', 'server', 'servalicious'];
 
 serverSynonyms.map(function(s) {
