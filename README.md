@@ -64,16 +64,10 @@ To use it, you will need Yeoman - a tool for managing code generators.
 npm install -g yo
 ```
 
-Next, you'll need to clone this repository.
+Next, you'll need to install the generator
 
 ```bash
-git clone https://github.com/michikono/generator-angular-enterprise.git
-```
-
-`cd` into the directory, and use (npm link)[https://docs.npmjs.com/cli/link] so that your system knows how to use the generator.
-```bash
-cd generator-angular-enterprise
-npm link
+npm install -g angular-enterprise
 ```
 
 Now, create a new directory where you want your angular app to live. Then enter that directory.
@@ -90,13 +84,13 @@ Then, initiate the generator:
 ae new
 ```
 
-And then create your application's starting point:
+Create your application's starting point:
 
 ```bash
 ae feature myStartingSection
 ```
 
-For example, the above would generate the following folder/files in your designated application folder:
+The above would generate the following folder/files in your designated application folder:
 
     app/
         my-starting-section/
@@ -105,8 +99,6 @@ For example, the above would generate the following folder/files in your designa
             my-starting-section.route.spec.js
 
 You would then add sub-components such as controllers to this module:
-
-Then, initiate the generator:
 
 ```bash
 ae controller myStartingPage
