@@ -1,4 +1,4 @@
-# Generator Angular Enterprise [![Build Status](https://travis-ci.org/michikono/generator-hestia.svg?branch=master)](https://travis-ci.org/michikono/generator-hestia)
+# Generator Angular Enterprise [![Build Status](https://travis-ci.org/michikono/generator-angular-enterprise.svg?branch=master)](https://travis-ci.org/michikono/generator-angular-enterprise)
 
 ** Currently in progress; now in a usable state! **
 
