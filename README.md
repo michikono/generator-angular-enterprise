@@ -1,4 +1,4 @@
-# Generator Hestia [![Build Status](https://travis-ci.org/michikono/generator-hestia.svg?branch=master)](https://travis-ci.org/michikono/generator-hestia)
+# Generator Angular Enterprise [![Build Status](https://travis-ci.org/michikono/generator-hestia.svg?branch=master)](https://travis-ci.org/michikono/generator-hestia)
 
 ** Currently in progress; now in a usable state! **
 
@@ -72,7 +72,7 @@ git clone https://github.com/michikono/generator-angular-enterprise.git
 
 `cd` into the directory, and use (npm link)[https://docs.npmjs.com/cli/link] so that your system knows how to use the generator.
 ```bash
-cd generator-hestia
+cd generator-angular-enterprise
 npm link
 ```
 
@@ -87,13 +87,13 @@ cd new-angular-app
 Then, initiate the generator:
 
 ```bash
-hestia new
+ae new
 ```
 
 And then create your application's starting point:
 
 ```bash
-hestia feature myStartingSection
+ae feature myStartingSection
 ```
 
 For example, the above would generate the following folder/files in your designated application folder:
@@ -109,7 +109,7 @@ You would then add sub-components such as controllers to this module:
 Then, initiate the generator:
 
 ```bash
-hestia controller myStartingPage
+ae controller myStartingPage
 ```
 
 Now your app looks like this:
@@ -148,11 +148,11 @@ gulp watch
 ### Other Generators
 
 ```bash
-hestia directive myDirective # "myDirective" is the camel case representation of your directive name
-hestia feature myFeature # "myFeature" is the name of the module (will generate a controller/routes)
-hestia filter myFilter # "myFilter" is what you would use in the HTML
-hestia factory myFactory # "myFactory" is the name of factory
-hestia service myService # "myService" is the name of service (singleton)
+ae directive myDirective # "myDirective" is the camel case representation of your directive name
+ae feature myFeature # "myFeature" is the name of the module (will generate a controller/routes)
+ae filter myFilter # "myFilter" is what you would use in the HTML
+ae factory myFactory # "myFactory" is the name of factory
+ae service myService # "myService" is the name of service (singleton)
 ```
 
 
