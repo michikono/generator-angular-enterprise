@@ -28,7 +28,7 @@ module.exports = helpers.NamedBase.extend({
     }, this).sort();
 
     if (!customModules.length) {
-      this.env.error(chalk.red("There are no features in this app. Please generate a feature before generating a controller. \nFor example, 'hestia feature myFeature'."));
+      this.env.error(chalk.red("There are no features in this app. Please generate a feature before generating a controller. \nFor example, 'ae feature myFeature'."));
     } else {
       var prompts = [
         {

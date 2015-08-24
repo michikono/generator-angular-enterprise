@@ -11,7 +11,7 @@ var serviceGen;
 describe("service generation", function() {
   beforeEach(function(done) {
     baseGenerator(function() {
-      serviceGen = helpers.createGenerator('hestia:service', [path.join(__dirname, '../generators/service')], ['myService']);
+      serviceGen = helpers.createGenerator('angular-enterprise:service', [path.join(__dirname, '../generators/service')], ['myService']);
       done();
     });
   });

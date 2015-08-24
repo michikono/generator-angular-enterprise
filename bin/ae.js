@@ -33,7 +33,7 @@ if ( process.argv.length <= 2 || process.argv.length > 4 ) {
 
 if ( process.argv.length === 3 ) {
 	if ( process.argv[2] = "new" ) {
-		kexec("yo", ["ae"]);
+		kexec("yo", ["angular-enterprise"]);
 	} else {
 		help();
 	}
@@ -42,7 +42,7 @@ if ( process.argv.length === 3 ) {
 
 if ( process.argv.length === 4 ) {
   if ( options[process.argv[2]] ) {
-    kexec("yo", ["ae:" + process.argv[2], process.argv[3]]);
+    kexec("yo", ["angular-enterprise:" + process.argv[2], process.argv[3]]);
   } else {
     help();
   }

@@ -11,7 +11,7 @@ var filterGen;
 describe("filter generation", function() {
   beforeEach(function(done) {
     baseGenerator(function() {
-      filterGen = helpers.createGenerator('hestia:filter', [path.join(__dirname, '../generators/filter')], ['myFilter']);
+      filterGen = helpers.createGenerator('angular-enterprise:filter', [path.join(__dirname, '../generators/filter')], ['myFilter']);
       done();
     });
   });

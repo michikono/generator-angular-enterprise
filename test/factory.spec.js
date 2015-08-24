@@ -11,7 +11,7 @@ var factoryGen;
 describe("factory generation", function() {
   beforeEach(function(done) {
     baseGenerator(function() {
-      factoryGen = helpers.createGenerator('hestia:factory', [path.join(__dirname, '../generators/factory')], ['myFactory']);
+      factoryGen = helpers.createGenerator('angular-enterprise:factory', [path.join(__dirname, '../generators/factory')], ['myFactory']);
       done();
     });
   });

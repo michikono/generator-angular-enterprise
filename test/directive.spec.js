@@ -11,7 +11,7 @@ var directiveGen;
 describe("directive generation", function() {
   beforeEach(function(done) {
     baseGenerator(function() {
-      directiveGen = helpers.createGenerator('hestia:directive', [path.join(__dirname, '../generators/directive')], ['myDirective']);
+      directiveGen = helpers.createGenerator('angular-enterprise:directive', [path.join(__dirname, '../generators/directive')], ['myDirective']);
       done();
     });
   });

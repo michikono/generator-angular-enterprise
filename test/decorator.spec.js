@@ -11,7 +11,7 @@ var decoratorGen;
 describe("decorator generation", function() {
   beforeEach(function(done) {
     baseGenerator(function() {
-      decoratorGen = helpers.createGenerator('hestia:decorator', [path.join(__dirname, '../generators/decorator')], ['log']);
+      decoratorGen = helpers.createGenerator('angular-enterprise:decorator', [path.join(__dirname, '../generators/decorator')], ['log']);
       done();
     });
   });
