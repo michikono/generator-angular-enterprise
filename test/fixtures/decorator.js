@@ -10,11 +10,11 @@
   /* @ngInject */
   function config($provide) {
 
-  	function logDecorator($delegate) {
-  	  return {};
-  	};
+    function logDecorator($delegate) {
+      return {};
+    };
 
-  	$provide.decorator("log", logDecorator);
-  	// [INJECT:DECORATORS] Generated decorators appear here, at this indent level. DO NOT REMOVE. 
+    $provide.decorator('log', logDecorator);
+    // [INJECT:DECORATORS] Generated decorators appear here, at this indent level. DO NOT REMOVE.
   }
 })();

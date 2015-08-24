@@ -9,6 +9,6 @@
 
   /* @ngInject */
   function config($provide) {
-  	// [INJECT:DECORATORS] Generated decorators appear here, at this indent level. DO NOT REMOVE. 
+    // [INJECT:DECORATORS] Generated decorators appear here, at this indent level. DO NOT REMOVE.
   }
 })();
