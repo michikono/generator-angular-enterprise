@@ -63,7 +63,7 @@ npm install -g yo
 Next, you'll need to install the generator
 
 ```bash
-npm install -g angular-enterprise
+npm install -g generator-angular-enterprise
 ```
 
 Now, create a new directory where you want your angular app to live. Then enter that directory.
