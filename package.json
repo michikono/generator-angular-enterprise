@@ -1,6 +1,6 @@
 {
   "name": "generator-angular-enterprise",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Angular Enterprise Yeoman generator",
   "license": "MIT",
   "main": "app/index.js",
@@ -28,10 +28,6 @@
   "scripts": {
     "test": "mocha -G --reporter nyan test/"
   },
-  "files": [
-    "app",
-    "feature"
-  ],
   "keywords": [
     "yeoman-generator",
     "enterprise",
