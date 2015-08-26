@@ -1,6 +1,6 @@
 {
   "name": "generator-angular-enterprise",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Angular Enterprise Yeoman generator",
   "license": "MIT",
   "main": "app/index.js",
@@ -35,6 +35,9 @@
   "keywords": [
     "yeoman-generator",
     "enterprise",
+    "best",
+    "practices",
+    "papa",
     "angular"
   ],
   "dependencies": {

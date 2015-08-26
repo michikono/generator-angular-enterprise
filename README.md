@@ -1,8 +1,5 @@
 # Generator Angular Enterprise [![Build Status](https://travis-ci.org/michikono/generator-angular-enterprise.svg?branch=master)](https://travis-ci.org/michikono/generator-angular-enterprise)
 
-** Currently in progress; now in a usable state! **
-
-
 ## What is this?
 
 This is the most comprehensive and strict code generator that adheres to Angular's
@@ -15,18 +12,17 @@ Most Angular tutorials teach _very_ bad patterns for creating larger Angular app
 There are also a lot of really popular patterns that aren't always practiced in the JavaScript 
 community (such as code coverage analysis). This generator encourages some of these patterns as well.
 
-These known best t are often called "enterprise" patterns simply because they aren't as 
-useful in small projects. This generator should be useful for any project that plans to expand 
+These known best t are often called "enterprise" patterns simply because they aren't critical 
+in small projects. This generator should be used in any project that plans to expand 
 beyond a few primary states.
 
 ## Main Features
 
+* **Teaches Best Practices** - Clearly labels code structures based on best practices (see next section)
 * **Enables Continuous Integration** - Out of the box support for [Travis](https://travis-ci.org/) and [Drone](https://github.com/drone/drone)
-* **Integrates with Enterprise APIs** - Integrated [Swagger-based](https://www.npmjs.com/package/swagger-server) server for mocked end points
 * **Encourages TDD + ATDD** - Built in build process for both unit and functional (e2e) testing 
 * **Performs Code Analysis** - Leverages some of the toolchain Best Practices (code coverage, complexity analysis, jshint, htmlhint, and JSCS)
-* **Teaches Best Practices** - Clearly labels code structures based on best practices (see next section)
-
+* (Coming soon) **Integrates with Enterprise APIs** - Integrated [Swagger-based](https://www.npmjs.com/package/swagger-server) server for mocked end points
 
 ### Best Practices Annotations
 
