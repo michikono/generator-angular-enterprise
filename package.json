@@ -1,10 +1,9 @@
 {
   "name": "generator-angular-enterprise",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Angular Enterprise Yeoman generator",
   "license": "MIT",
-  "main": "app/index.js",
-  "repository": "placeholder/generator-angular-enterprise",
+  "repository": "https://github.com/michikono/generator-angular-enterprise",
   "author": {
     "name": "Michi Kono",
     "email": "michikono@gmail.com",
