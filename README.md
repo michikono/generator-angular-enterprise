@@ -22,7 +22,7 @@ beyond a few primary states.
 * **Enables Continuous Integration** - Out of the box support for [Travis](https://travis-ci.org/) and [Drone](https://github.com/drone/drone)
 * **Encourages TDD + ATDD** - Built in build process for both unit and functional (e2e) testing 
 * **Performs Code Analysis** - Leverages some of the toolchain Best Practices (code coverage, complexity analysis, jshint, htmlhint, and JSCS)
-* (Coming soon) **Integrates with Enterprise APIs** - Integrated [Swagger-based](https://www.npmjs.com/package/swagger-server) server for mocked end points
+* **Integrates with Enterprise APIs** - Integrated [Swagger-based](https://www.npmjs.com/package/swagger-server) server for mocked end points
 
 ### Best Practices Annotations
 
@@ -178,3 +178,4 @@ MIT. Copyright (c) 2015 Michi Kono, John Katsnelson, Forrest Thomas
 * Closure-ifying all files instead of manually doing it
 * Code coverage analysis (cyclomatic, halstead)
 * Complexity analysis
+* TS support
