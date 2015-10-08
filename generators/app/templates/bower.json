@@ -9,6 +9,7 @@
   ],
   "dependencies": {
     "angular": "~1.4",
+    "angular-mocks": "~1.4.7",
 <% if (bootstrap) { -%>
     "bootstrap-sass-official": "~3.3.4",
     "angular-bootstrap": "~0.13.0",
