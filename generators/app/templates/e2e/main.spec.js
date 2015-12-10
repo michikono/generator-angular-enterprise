@@ -9,7 +9,7 @@ describe('The main view', function () {
   });
 
   it('should include jumbotron with correct data', function() {
-    expect(page.mainEl.getText()).toBe('Congratulations, you\'ve scaffolded an app with Hestia!');
+    expect(page.mainEl.getText()).toBe('Congratulations, you\'ve scaffolded an app with Angular Enterprise!');
   });
 
 });

@@ -9,7 +9,7 @@ module.exports = function(Generator) {
 
     // Have Yeoman greet the user.
     this.log(yosay(
-      chalk.green('Hestia') + ' - Angular 1.4 generator!'
+      chalk.green('Angular Enterprise') + ' - Angular 1.4 generator!'
     ));
 
     var prompts = [
